@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap — alexisvassiviere.com
+
+  Le site est une page unique (HTML/JS) : les sections "Projets" et
+  "Contact" sont des routes en # (ex. alexisvassiviere.com/#/contact),
+  qui ne sont PAS des URL distinctes pour Google (les fragments # après
+  le nom de domaine sont ignorés dans un sitemap). Une seule URL est donc
+  listée ici : la page d'accueil.
+
+  À mettre à jour : la date <lastmod> à chaque mise à jour importante du
+  contenu (nouvelles photos, nouveaux projets, textes...).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://alexisvassiviere.com/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

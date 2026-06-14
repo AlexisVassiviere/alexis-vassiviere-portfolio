@@ -1,0 +1,46 @@
+# alexisvassiviere.com
+# Autorise tous les robots (moteurs de recherche + moteurs IA / GEO).
+
+User-agent: *
+Allow: /
+
+# Robots IA explicitement autorisés (recherche IA, citations, GEO) :
+# ChatGPT / OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google (IA / Gemini, en plus de Googlebot classique)
+User-agent: Google-Extended
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://alexisvassiviere.com/sitemap.xml
