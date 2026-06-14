@@ -367,14 +367,18 @@ body.editing .tile .edit-tools{opacity:1}
    Le titre (h2) suit le même système de police/alignement/position que les
    autres titres de page (--title-*-contact), réglable via le groupe "Titre"
    de la barre d'outils — voir applyTitleStyle() dans le script. */
-.contact-simple{padding:48px 0 96px;max-width:90ch;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:32px;text-align:center}
+/* Largeur de la colonne Contact : élargie (14/06/2026) pour étaler le texte
+   sur plus de largeur tout en restant centré, et réduire la hauteur totale
+   de la page (moins de retours à la ligne). Modifier ces "ch" pour ajuster
+   la largeur — 1ch ≈ largeur d'un caractère. */
+.contact-simple{padding:48px 0 96px;max-width:110ch;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:32px;text-align:center}
 .contact-simple h2{
   font-family:var(--title-font-family);font-weight:var(--title-font-weight);font-style:var(--title-font-style);
   font-size:clamp(30px,4.6vw,56px);line-height:1.2;letter-spacing:.08em;text-transform:uppercase;
   margin-top:var(--title-offset-contact);margin-bottom:0;
   text-align:var(--title-align-contact);
 }
-.contact-simple .intro{font-size:17px;line-height:1.85;letter-spacing:.01em;color:var(--ink-soft);max-width:62ch;margin:0 auto;text-align:left}
+.contact-simple .intro{font-size:17px;line-height:1.85;letter-spacing:.01em;color:var(--ink-soft);max-width:82ch;margin:0 auto;text-align:left}
 /* Texte de présentation en plusieurs paragraphes : espacement entre eux,
    et 1er paragraphe légèrement mis en avant (taille + couleur) pour servir
    d'accroche, façon "chapeau" éditorial. */
@@ -416,7 +420,10 @@ body.editing .tile .edit-tools{opacity:1}
 
 /* Chaque entrée de la galerie = petit titre du projet (éditable) + vignette,
    empilés avec un espacement réduit (voir HANDOFF.md, 13/06/2026). */
-.proj-card{display:flex;flex-direction:column;gap:4px}
+/* min-width:0 : empêche le titre (white-space:nowrap) d'imposer sa largeur
+   complète à la colonne de la grille — sans ça, sur mobile (4 colonnes),
+   les titres longs forçaient un débordement horizontal de toute la page. */
+.proj-card{display:flex;flex-direction:column;gap:4px;min-width:0}
 .proj-title{
   font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
@@ -679,7 +686,12 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
   /* Pleine largeur sur mobile (au lieu de --grid-maxw / --pd-grid-maxw,
      qui peuvent être réduits sur grand écran) — colonnes inchangées. */
   .grid-home,.grid-pd{max-width:100%}
-  .contact-simple{padding:24px 0 64px}
+  /* Page Contact sur mobile : texte centré et plus compact, espacements
+     réduits, pour que l'email reste visible sans avoir à scroller. */
+  .contact-simple{padding:24px 0 64px;gap:18px}
+  .contact-simple .intro{font-size:14px;line-height:1.55;text-align:center}
+  .contact-simple .intro p{margin:0 0 .8em}
+  .block-row[data-block="email"],.block-row[data-block="title"]{margin-top:20px!important}
   .lightbox .lb-nav{width:44px;height:44px}
   .lightbox .lb-prev{left:8px}.lightbox .lb-next{right:8px}
   .toolbar{bottom:12px;font-size:10px;flex-wrap:wrap;max-width:calc(100vw - 24px);justify-content:center}
