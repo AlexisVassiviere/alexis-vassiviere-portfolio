@@ -373,7 +373,7 @@ body.editing .tile .edit-tools{opacity:1}
    1ch ≈ largeur d'un caractère. padding/gap réduits en même temps pour
    compacter verticalement (la version mobile garde ses propres réglages
    plus bas, voir media query). */
-.contact-simple{padding:28px 0 48px;max-width:160ch;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.contact-simple{padding:28px 0 36px;max-width:160ch;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
 .contact-simple h2{
   font-family:var(--title-font-family);font-weight:var(--title-font-weight);font-style:var(--title-font-style);
   font-size:clamp(30px,4.6vw,56px);line-height:1.2;letter-spacing:.08em;text-transform:uppercase;
@@ -385,8 +385,11 @@ body.editing .tile .edit-tools{opacity:1}
    <link> Google Fonts) et interligne plus aéré, d'après une référence visuelle
    envoyée par Alexis. Pour revenir à l'ancien style (large, aligné à gauche,
    sans-serif) : remettre font-family:'Space Grotesk',sans-serif;
-   text-align:left; max-width:150ch; line-height:1.6; font-size:17px. */
-.contact-simple .intro{font-family:'EB Garamond',Georgia,serif;font-size:19px;line-height:1.85;letter-spacing:.01em;color:var(--ink-soft);max-width:62ch;margin:0 auto;text-align:center}
+   text-align:left; max-width:150ch; line-height:1.6; font-size:17px.
+   15/06/2026 (v3) : colonne ré-élargie de 62ch à 74ch (+ padding/gap/marges
+   réduits ci-dessus et sur les blocs intro/title) pour compenser la hauteur
+   ajoutée par le serif/interligne et viser à nouveau "sans scroll" desktop. */
+.contact-simple .intro{font-family:'EB Garamond',Georgia,serif;font-size:19px;line-height:1.85;letter-spacing:.01em;color:var(--ink-soft);max-width:74ch;margin:0 auto;text-align:center}
 /* Texte de présentation en plusieurs paragraphes : espacement entre eux,
    et 1er paragraphe légèrement mis en avant (taille + couleur) pour servir
    d'accroche, façon "chapeau" éditorial. */
@@ -696,8 +699,8 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
   .grid-home,.grid-pd{max-width:100%}
   /* Page Contact sur mobile : texte centré et plus compact, espacements
      réduits, pour que l'email reste visible sans avoir à scroller. */
-  .contact-simple{padding:24px 0 64px;gap:18px}
-  .contact-simple .intro{font-size:15px;line-height:1.65;max-width:30ch}
+  .contact-simple{padding:24px 0 48px;gap:14px}
+  .contact-simple .intro{font-size:15px;line-height:1.65;max-width:34ch}
   .contact-simple .intro p{margin:0 0 .9em}
   .block-row[data-block="email"],.block-row[data-block="title"]{margin-top:20px!important}
   /* Corrige un chevauchement entre l'email et "Let's work together" sur
@@ -813,7 +816,7 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
 
 
 
-    <div class="block-row" data-block="intro" style="margin-bottom: 12px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><div class="intro" data-key="contact.intro" style="font-family: 'EB Garamond', serif; font-style: normal; font-weight: 500;"><p>Je photographie depuis plus de quinze ans. La scène, le portrait éditorial, les campagnes de marque — des univers différents, une même exigence&nbsp;: l'image juste, celle qui reste.</p><p>Mon travail se situe à l'intersection du documentaire, de la mode et du commercial. Un parcours construit entre l'argentique et le numérique&nbsp;: le film m'a appris la patience et la précision — chaque déclenchement compte. Le numérique m'a donné la vitesse et la liberté. Aujourd'hui, je travaille avec les deux, selon ce que le projet demande.</p><p>En tant que directeur artistique, je ne me contente pas d'exécuter. Je conçois&nbsp;: le concept, la lumière, la direction, l'intention. C'est ce qui fait la différence entre une photo correcte et une image qui porte une identité.</p></div></div><div class="block-row" data-block="email" style="margin-top: 32px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><a href="mailto:contact@alexisvassiviere.com" class="contact-email-cta" id="contact-email"><span data-key="contact.email" style="font-family: &quot;Cormorant Garamond&quot;, serif; font-style: normal; font-weight: 500;">contact@alexisvassiviere.com</span></a></div><div class="block-row" data-block="title" style="margin-top: 32px; margin-bottom: 12px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><h2 data-i18n="contact.title" style="font-family: Jost, sans-serif; font-style: normal; font-weight: 500;">Let's work together</h2></div><div class="block-row" data-block="divider" style=""><span class="block-handle" title="Déplacer ce bloc">⠿</span><hr class="contact-divider"></div><div class="block-row" data-block="clients" style="margin-top: 24px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><div class="contact-clients">
+    <div class="block-row" data-block="intro" style="margin-bottom: 10px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><div class="intro" data-key="contact.intro" style="font-family: 'EB Garamond', serif; font-style: normal; font-weight: 500;"><p>Je photographie depuis plus de quinze ans. La scène, le portrait éditorial, les campagnes de marque — des univers différents, une même exigence&nbsp;: l'image juste, celle qui reste.</p><p>Mon travail se situe à l'intersection du documentaire, de la mode et du commercial. Un parcours construit entre l'argentique et le numérique&nbsp;: le film m'a appris la patience et la précision — chaque déclenchement compte. Le numérique m'a donné la vitesse et la liberté. Aujourd'hui, je travaille avec les deux, selon ce que le projet demande.</p><p>En tant que directeur artistique, je ne me contente pas d'exécuter. Je conçois&nbsp;: le concept, la lumière, la direction, l'intention. C'est ce qui fait la différence entre une photo correcte et une image qui porte une identité.</p></div></div><div class="block-row" data-block="email" style="margin-top: 32px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><a href="mailto:contact@alexisvassiviere.com" class="contact-email-cta" id="contact-email"><span data-key="contact.email" style="font-family: &quot;Cormorant Garamond&quot;, serif; font-style: normal; font-weight: 500;">contact@alexisvassiviere.com</span></a></div><div class="block-row" data-block="title" style="margin-top: 32px; margin-bottom: 10px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><h2 data-i18n="contact.title" style="font-family: Jost, sans-serif; font-style: normal; font-weight: 500;">Let's work together</h2></div><div class="block-row" data-block="divider" style=""><span class="block-handle" title="Déplacer ce bloc">⠿</span><hr class="contact-divider"></div><div class="block-row" data-block="clients" style="margin-top: 24px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><div class="contact-clients">
         <span data-i18n="hero.clientsLabel">Clients</span>
         <span id="contact-clients-line">Sony Music   ·   Burberry   ·   RTBF   ·   NRJ   ·   Nostalgie   ·   Elle Belgique   ·   Playtwo   ·   HUG — Help U Grow</span>
       </div></div></div>
