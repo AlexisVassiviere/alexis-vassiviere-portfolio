@@ -771,6 +771,26 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
   .toolbar .status{display:none}
   .gap-control{padding:0 6px}
   .gap-control input[type="range"]{width:56px}
+  /* Page "Projets" sur mobile : avec 4 colonnes, les titres de vignettes
+     (.proj-title) débordent largement de leur colonne et sont tronqués par
+     l'ellipsis (illisibles). On réduit la taille, on resserre l'interlettrage
+     et on autorise le retour à la ligne pour qu'ils restent entièrement
+     visibles. Le texte d'intro (.project-head .intro), trop grand sur mobile,
+     reprend la même typo (taille/casse/interlettrage) que ces titres. */
+  .proj-title{
+    font-size:8px;
+    letter-spacing:.02em;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:unset;
+    line-height:1.3;
+  }
+  .project-head .intro{
+    font-size:8px;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    line-height:1.6;
+  }
 }
 @media (max-width:480px){
   .brand{font-size:15px;letter-spacing:.05em}
