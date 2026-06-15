@@ -694,6 +694,11 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
   .contact-simple .intro{font-size:14px;line-height:1.55;text-align:center}
   .contact-simple .intro p{margin:0 0 .8em}
   .block-row[data-block="email"],.block-row[data-block="title"]{margin-top:20px!important}
+  /* Corrige un chevauchement entre l'email et "Let's work together" sur
+     mobile : --title-offset-contact (réglage desktop du mode édition, -40px)
+     remonte trop le titre une fois l'espacement resserré. On neutralise ce
+     décalage uniquement sur mobile (le réglage desktop n'est pas touché). */
+  .contact-simple h2{margin-top:0!important}
   .lightbox .lb-nav{width:44px;height:44px}
   .lightbox .lb-prev{left:8px}.lightbox .lb-next{right:8px}
   .toolbar{bottom:12px;font-size:10px;flex-wrap:wrap;max-width:calc(100vw - 24px);justify-content:center}
