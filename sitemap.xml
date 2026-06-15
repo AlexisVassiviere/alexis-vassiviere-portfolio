@@ -2,20 +2,139 @@
 <!--
   Sitemap — alexisvassiviere.com
 
-  Le site est une page unique (HTML/JS) : les sections "Projets" et
-  "Contact" sont des routes en # (ex. alexisvassiviere.com/#/contact),
-  qui ne sont PAS des URL distinctes pour Google (les fragments # après
-  le nom de domaine sont ignorés dans un sitemap). Une seule URL est donc
-  listée ici : la page d'accueil.
+  Le site est généré à partir d'une page unique (index.html, SPA
+  HTML/CSS/JS) mais expose désormais des URL distinctes pré-rendues
+  pour chaque page/langue (voir generate-pages.js) :
+    - /              (accueil, FR)
+    - /en/           (accueil, EN)
+    - /projets/      (projets, FR)
+    - /en/projects/  (projets, EN)
+    - /contact/      (contact, FR)
+    - /en/contact/   (contact, EN)
 
-  À mettre à jour : la date <lastmod> à chaque mise à jour importante du
-  contenu (nouvelles photos, nouveaux projets, textes...).
+  ...ainsi que des pages détail par projet (Phase 2) :
+    - /projets/<id>/          (détail projet, FR)
+    - /en/projects/<id>/      (détail projet, EN)
+  Pour l'instant : portraits-editorial, live-tournee, sport-evenementiel.
+  Les projets "GAZO" et "Nouveau projet" sont reportés (titres EN à
+  corriger) — voir HANDOFF.md.
+
+  Chaque URL annonce ses variantes linguistiques via
+  <xhtml:link rel="alternate" hreflang="...">, en cohérence avec les
+  balises <link rel="alternate" hreflang="..."> du <head> de chaque
+  page (voir generate-pages.js).
+
+  À mettre à jour : la date <lastmod> à chaque mise à jour importante
+  du contenu (nouvelles photos, nouveaux projets, textes...).
 -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://alexisvassiviere.com/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/projets/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/projects/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/projets/portraits-editorial/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/portraits-editorial/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/portraits-editorial/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/portraits-editorial/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/projects/portraits-editorial/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/portraits-editorial/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/portraits-editorial/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/portraits-editorial/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/projets/live-tournee/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/live-tournee/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/live-tournee/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/live-tournee/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/projects/live-tournee/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/live-tournee/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/live-tournee/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/live-tournee/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/projets/sport-evenementiel/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/sport-evenementiel/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/sport-evenementiel/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/sport-evenementiel/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/projects/sport-evenementiel/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/sport-evenementiel/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/sport-evenementiel/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/sport-evenementiel/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/contact/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/contact/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/contact/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/contact/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/contact/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/contact/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/contact/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/contact/" />
   </url>
 </urlset>

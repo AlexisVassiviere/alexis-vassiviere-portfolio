@@ -1,0 +1,10 @@
+# Fichiers de travail / sauvegardes locales — ne pas déployer
+node_modules
+index.backup-*.html
+alexis-vassiviere-cms.html
+portfolio-backup-2026-06-14.json
+.DS_Store
+
+# Docs internes (non nécessaires en prod)
+GUIDE.md
+HANDOFF.md
