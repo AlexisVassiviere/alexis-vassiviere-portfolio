@@ -570,33 +570,6 @@ body.show-fab .edit-fab{display:block}
 }
 .edit-fab .btn .dot{width:6px;height:6px;border-radius:50%;background:#9ee493;display:inline-block}
 
-/* ---------- PREVIEW GATE ----------
-   Ecran "site en finalisation" affiché aux visiteurs pendant que tu
-   continues les modifications. Voir le script juste avant </head> pour
-   activer/désactiver ce mode et définir le mot de passe d'accès anticipé. */
-.preview-gate{
-  position:fixed;inset:0;z-index:9999;
-  display:none;flex-direction:column;align-items:center;justify-content:center;
-  gap:18px;padding:24px;text-align:center;
-  background:var(--bg);color:var(--ink);
-}
-html.preview-locked .preview-gate{display:flex}
-html.preview-locked body > *:not(.preview-gate){display:none!important}
-html.preview-locked body{overflow:hidden}
-.preview-gate .pg-brand{
-  font-family:'Space Grotesk',sans-serif;font-weight:400;letter-spacing:.04em;
-  font-size:clamp(18px,2vw,24px);
-}
-.preview-gate h1{
-  font-family:'Fraunces',serif;font-style:italic;font-weight:300;
-  font-size:clamp(28px,5vw,52px);margin:0;line-height:1.15;
-}
-.preview-gate p{
-  margin:0;color:var(--ink-soft);font-size:13px;line-height:1.8;
-  letter-spacing:.02em;max-width:46ch;
-}
-.preview-gate a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-
 .toolbar{
   position:fixed;left:50%;transform:translateX(-50%);
   bottom:18px;z-index:95;
@@ -804,46 +777,8 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
 }
 </style>
 
-<!-- ===== MODE PREVIEW : interrupteur ===== -->
-<script>
-(function(){
-  var PREVIEW_MODE = false; // <- mettre à false pour rendre le site public à tous
-  if(!PREVIEW_MODE) return;
-  var PREVIEW_KEY = 'alexis2026'; // mot de passe d'accès anticipé (?preview=alexis2026)
-  var STORAGE_FLAG = 'av.preview.unlocked';
-  try{
-    var params = new URLSearchParams(location.search);
-    if(params.get('preview') === PREVIEW_KEY){
-      localStorage.setItem(STORAGE_FLAG, '1');
-    }
-    if(localStorage.getItem(STORAGE_FLAG) !== '1'){
-      document.documentElement.classList.add('preview-locked');
-    }
-  }catch(e){}
-})();
-</script>
 </head>
 <body style="">
-
-<!-- =========================================================
-     MODE PREVIEW — écran "site en finalisation"
-     ---------------------------------------------------------
-     Tant que PREVIEW_MODE = true (script ci-dessous), les
-     visiteurs voient cet écran à la place du site.
-     Pour repasser le site en public : ouvre index.html,
-     cherche "PREVIEW_MODE" juste avant </head> et mets-le à
-     false (ou supprime ce bloc + le script).
-     Pour y accéder toi-même pendant que c'est en preview :
-     ouvre une fois https://alexisvassiviere.com/?preview=alexis2026
-     — ton navigateur retient l'accès ensuite (même après reload).
-     ========================================================= -->
-<div class="preview-gate">
-  <span class="pg-brand">Alexis Vassivière</span>
-  <h1>Site en cours de finalisation</h1>
-  <p>De nouvelles photos et pages arrivent très bientôt.<br>Pour me contacter dès maintenant :<br>
-  <a href="mailto:contact@alexisvassiviere.com">contact@alexisvassiviere.com</a></p>
-  <p style="margin-top:10px">New photos and pages coming very soon.<br>Get in touch in the meantime above.</p>
-</div>
 
 <header class="site" id="header">
   <a href="#/" class="brand" data-i18n-html="brand">Alexis Vassivière</a>
