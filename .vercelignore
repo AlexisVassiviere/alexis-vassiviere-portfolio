@@ -1,6 +1,8 @@
 # Fichiers de travail / sauvegardes locales — ne pas déployer
 node_modules
 index.backup-*.html
+generate-pages.backup-*.js
+sitemap.backup-*.xml
 alexis-vassiviere-cms.html
 portfolio-backup-2026-06-14.json
 .DS_Store

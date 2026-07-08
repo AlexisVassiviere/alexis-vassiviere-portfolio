@@ -15,9 +15,10 @@
   ...ainsi que des pages détail par projet (Phase 2) :
     - /projets/<id>/          (détail projet, FR)
     - /en/projects/<id>/      (détail projet, EN)
-  Pour l'instant : portraits-editorial, live-tournee, sport-evenementiel.
-  Les projets "GAZO" et "Nouveau projet" sont reportés (titres EN à
-  corriger) — voir HANDOFF.md.
+  Tous les projets du seed ont leur page détail : projet-mqdvqqpk (GAZO),
+  portraits-editorial, live-tournee, sport-evenementiel, projet-mqdx1i0c
+  (Profirst). Penser à ajouter ici les URL de tout nouveau projet ajouté
+  à DETAIL_PROJECT_INDEXES dans generate-pages.js.
 
   Chaque URL annonce ses variantes linguistiques via
   <xhtml:link rel="alternate" hreflang="...">, en cohérence avec les
@@ -64,6 +65,42 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/projets/projet-mqdvqqpk/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/projet-mqdvqqpk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/projet-mqdvqqpk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/projet-mqdvqqpk/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/projects/projet-mqdvqqpk/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/projet-mqdvqqpk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/projet-mqdvqqpk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/projet-mqdvqqpk/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/projets/projet-mqdx1i0c/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/projet-mqdx1i0c/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/projet-mqdx1i0c/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/projet-mqdx1i0c/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/projects/projet-mqdx1i0c/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/projet-mqdx1i0c/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/projet-mqdx1i0c/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/projet-mqdx1i0c/" />
   </url>
   <url>
     <loc>https://alexisvassiviere.com/projets/portraits-editorial/</loc>

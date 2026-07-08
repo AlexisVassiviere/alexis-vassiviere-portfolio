@@ -132,12 +132,48 @@ const PAGES = [
 // Phase 2 — pages détail projet (/projets/<id>/, /en/projects/<id>/)
 // ---------------------------------------------------------------------
 // Index (dans SEED.projects) des projets ayant chacun leur propre page
-// détail. Pour l'instant : seulement les projets avec un vrai titre EN
-// (pas de placeholder "New project"). Les projets 0 ("GAZO...") et 4
-// ("Nouveau projet") sont volontairement exclus — voir HANDOFF.md ;
-// il suffira de les ajouter à cette liste une fois leurs titres FR/EN
-// corrigés.
-const DETAIL_PROJECT_INDEXES = [1, 2, 3];
+// détail. Tous les projets du seed ont désormais un vrai titre FR/EN
+// (les placeholders "Nouveau projet"/"New project" ont été corrigés),
+// donc tous sont inclus. Penser à ajouter ici tout nouveau projet
+// (et ses URL dans sitemap.xml).
+const DETAIL_PROJECT_INDEXES = [0, 1, 2, 3, 4];
+
+// Chemin absolu d'une photo : le seed stocke des chemins relatifs
+// ("images/..."), qui ne se résolvent pas depuis les sous-dossiers
+// (/projets/<id>/images/... → 404). Même logique que normalizeSrc()
+// côté client dans index.html.
+function absSrc(src) {
+  const s = String(src || '');
+  return s.startsWith('/') ? s : '/' + s;
+}
+
+// Variantes WebP responsive (audit 4.1, générées par generate-webp.js —
+// npm run webp) : srcset "-480/-960/-1600.webp" ajouté aux <img> statiques,
+// seulement si les trois variantes existent sur disque. Les photos ajoutées
+// via le CMS (data:) ou sans variantes gardent leur src JPEG seul — même
+// logique que webpSrcset() côté client dans index.html.
+const WEBP_WIDTHS = [480, 960, 1600];
+function webpSrcset(src) {
+  const s = absSrc(src);
+  if (!/^\/images\/[^?#]+\.jpe?g$/i.test(s)) return '';
+  const base = s.replace(/\.jpe?g$/i, '');
+  const candidates = WEBP_WIDTHS.map(w => `${base}-${w}.webp`);
+  const allOnDisk = candidates.every(rel =>
+    fs.existsSync(path.join(ROOT, decodeURIComponent(rel.slice(1)))));
+  if (!allOnDisk) return '';
+  return candidates.map((c, i) => `${c} ${WEBP_WIDTHS[i]}w`).join(', ');
+}
+// Attribut sizes ≈ largeur d'une colonne de grille (même calcul que
+// gridSizes() dans index.html : pleine largeur sur mobile ≤820px, sinon
+// largeur de grille réglée par Alexis, divisée par le nombre de colonnes).
+function gridSizes(cols, widthPct) {
+  const c = Math.max(1, parseInt(cols, 10) || 3);
+  const w = Math.min(100, Math.max(30, parseInt(widthPct, 10) || 100));
+  return `(max-width:820px) ${Math.round(100 / c)}vw, ${Math.round(w / c)}vw`;
+}
+const PD_GRID_SIZES = gridSizes(SEED.pdGridCols, SEED.pdGridWidth);
+// Galerie Projets : 4 colonnes desktop, 2 sur mobile (CSS #project-grid).
+const PROJECT_GRID_SIZES = '(max-width:820px) 50vw, 25vw';
 
 // Titre <title> / og:title / twitter:title d'une page détail projet.
 function projectPageTitle(proj, lang) {
@@ -281,7 +317,7 @@ function transformJsonLd(html, page, SEED) {
   };
   if (page.kind === 'detail') {
     const proj = SEED.projects[page.projectIdx];
-    node.image = (proj.photos || []).map(p => `${SITE}${p.src}`);
+    node.image = (proj.photos || []).map(p => `${SITE}${absSrc(p.src)}`);
   }
   data['@graph'].push(node);
   const newJson = JSON.stringify(data, null, 2);
@@ -363,6 +399,11 @@ function transformBody(html, page, SEED) {
             $(el).closest('.proj-card').find('img').attr('alt', title);
           }
         });
+        // srcset WebP sur les couvertures statiques de la galerie Projets.
+        $('#project-grid img').each((i, el) => {
+          const srcset = webpSrcset($(el).attr('src') || '');
+          if (srcset) $(el).attr('srcset', srcset).attr('sizes', PROJECT_GRID_SIZES);
+        });
       } else if (key === 'detail') {
         const proj = SEED.projects[page.projectIdx];
         $el.attr('data-idx', String(page.projectIdx));
@@ -373,8 +414,12 @@ function transformBody(html, page, SEED) {
         const photos = proj.photos || [];
         photos.forEach((p, i) => {
           const alt = escapeHtml(projectPhotoAlt(p, page.lang, proj, i, photos.length));
-          const src = escapeHtml(p.src || '');
-          $grid.append(`<div class="tile"><img alt="${alt}" loading="lazy" decoding="async" src="${src}"></div>`);
+          const src = escapeHtml(absSrc(p.src));
+          const srcset = webpSrcset(p.src);
+          const resp = srcset
+            ? ` srcset="${escapeHtml(srcset)}" sizes="${escapeHtml(PD_GRID_SIZES)}"`
+            : '';
+          $grid.append(`<div class="tile"><img alt="${alt}" loading="lazy" decoding="async"${resp} src="${src}"></div>`);
         });
       }
     } else {
