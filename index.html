@@ -326,26 +326,27 @@ main.page{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad) var(--pad-xl)
 }
 .tile img.loaded{opacity:1}
 .tile:hover img{transform:scale(1.02)}
+/* Champ "texte alternatif" (alt) superposé en bas de chaque vignette.
+   ⚠️ Réservé au mode édition (body.editing) : le texte alt sert uniquement au
+   SEO / à l'accessibilité via l'attribut alt de l'<img>, il ne doit JAMAIS
+   s'afficher pour les visiteurs (ni au survol, ni autrement). D'où display:none
+   par défaut — pas seulement opacity:0, qui laisserait le champ lisible par les
+   lecteurs d'écran et son aria-label « Texte alternatif (alt) » annoncé. */
 .tile .meta{
+  display:none;
   position:absolute;left:0;right:0;bottom:0;padding:14px;
-  display:flex;justify-content:space-between;align-items:flex-end;gap:10px;
+  justify-content:space-between;align-items:flex-end;gap:10px;
   color:#fff;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
   background:linear-gradient(180deg,transparent,rgba(0,0,0,.45));
   opacity:0;transition:opacity .35s var(--ease);
   pointer-events:none;
 }
-.tile:hover .meta{opacity:1}
-/* Champ "texte alternatif" (alt) superposé en bas de chaque vignette : visible
-   au survol pour tout le monde (lecture), mais seulement interactif (focus,
-   saisie) en mode édition (body.editing). Les visiteurs voient le champ vide
-   sans le placeholder (couleur transparente) pour ne pas afficher une invite
-   d'édition sur le site public. */
 .tile .meta input.alt-input{
   flex:1;width:100%;background:transparent;border:none;outline:none;padding:0;
   color:#fff;font:inherit;font-size:10.5px;letter-spacing:.1em;text-transform:none;
 }
 .tile .meta input.alt-input::placeholder{color:transparent}
-body.editing .tile .meta{opacity:1;pointer-events:auto}
+body.editing .tile .meta{display:flex;opacity:1;pointer-events:auto}
 body.editing .tile .meta input.alt-input::placeholder{color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.2em}
 body.editing .tile .meta input.alt-input:focus{outline:1px dashed rgba(255,255,255,.5);outline-offset:2px}
 
@@ -405,7 +406,11 @@ body.editing .tile .edit-tools{opacity:1}
 .lightbox .lb-prev{left:24px}
 .lightbox .lb-next{right:24px}
 .lightbox .lb-close{position:absolute;top:18px;right:18px;width:44px;height:44px;color:#fff;font-size:18px;background:rgba(255,255,255,.06);border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
-.lightbox .lb-info{position:absolute;left:24px;bottom:18px;color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+/* .lb-info reçoit le texte alt de la photo affichée : masqué pour le public
+   (même règle que .tile .meta — l'alt est réservé au SEO), affiché en mode
+   édition pour relire/vérifier la saisie. */
+.lightbox .lb-info{display:none;position:absolute;left:24px;bottom:18px;color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+body.editing .lightbox .lb-info{display:block}
 .lightbox .lb-count{position:absolute;right:24px;bottom:18px;color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.18em}
 
 /* ---------- CONTACT ---------- */
