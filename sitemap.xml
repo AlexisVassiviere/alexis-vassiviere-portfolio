@@ -16,8 +16,9 @@
     - /projets/<id>/          (détail projet, FR)
     - /en/projects/<id>/      (détail projet, EN)
   Tous les projets du seed ont leur page détail : altstadt-vienna,
-  hm-home, projet-mqdvqqpk (GAZO), portraits-editorial, live-tournee,
-  sport-evenementiel, projet-mqdx1i0c (Profirst). Penser à ajouter ici les URL de tout nouveau projet ajouté
+  hm-home, profirst-palerme-gala, projet-mqdvqqpk (GAZO), portraits-editorial, live-tournee,
+  sport-evenementiel. L'ancien projet projet-mqdx1i0c (Profirst) a été
+  retiré le 28/10/2026 et redirigé vers profirst-palerme-gala (vercel.json). Penser à ajouter ici les URL de tout nouveau projet ajouté
   à DETAIL_PROJECT_INDEXES dans generate-pages.js.
 
   Chaque URL annonce ses variantes linguistiques via
@@ -103,6 +104,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/hm-home/" />
   </url>
   <url>
+    <loc>https://alexisvassiviere.com/projets/profirst-palerme-gala/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/profirst-palerme-gala/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/profirst-palerme-gala/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/profirst-palerme-gala/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/projects/profirst-palerme-gala/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/profirst-palerme-gala/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/profirst-palerme-gala/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/profirst-palerme-gala/" />
+  </url>
+  <url>
     <loc>https://alexisvassiviere.com/projets/projet-mqdvqqpk/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -119,24 +138,6 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/projet-mqdvqqpk/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/projet-mqdvqqpk/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/projet-mqdvqqpk/" />
-  </url>
-  <url>
-    <loc>https://alexisvassiviere.com/projets/projet-mqdx1i0c/</loc>
-    <lastmod>2026-07-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/projet-mqdx1i0c/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/projet-mqdx1i0c/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/projet-mqdx1i0c/" />
-  </url>
-  <url>
-    <loc>https://alexisvassiviere.com/en/projects/projet-mqdx1i0c/</loc>
-    <lastmod>2026-07-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/projet-mqdx1i0c/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/projet-mqdx1i0c/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/projet-mqdx1i0c/" />
   </url>
   <url>
     <loc>https://alexisvassiviere.com/projets/portraits-editorial/</loc>

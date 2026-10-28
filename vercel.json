@@ -1,5 +1,9 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": ".",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/projets/projet-mqdx1i0c/", "destination": "/projets/profirst-palerme-gala/", "permanent": true },
+    { "source": "/en/projects/projet-mqdx1i0c/", "destination": "/en/projects/profirst-palerme-gala/", "permanent": true }
+  ]
 }
