@@ -16,7 +16,7 @@
     - /projets/<id>/          (détail projet, FR)
     - /en/projects/<id>/      (détail projet, EN)
   Tous les projets du seed ont leur page détail : altstadt-vienna,
-  hm-home, profirst-palerme-gala, projet-mqdvqqpk (GAZO), portraits-editorial, live-tournee,
+  hm-home, profirst-palerme-gala, lena-situations, projet-mqdvqqpk (GAZO), portraits-editorial, live-tournee,
   sport-evenementiel. L'ancien projet projet-mqdx1i0c (Profirst) a été
   retiré le 28/10/2026 et redirigé vers profirst-palerme-gala (vercel.json). Penser à ajouter ici les URL de tout nouveau projet ajouté
   à DETAIL_PROJECT_INDEXES dans generate-pages.js.
@@ -120,6 +120,24 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/profirst-palerme-gala/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/profirst-palerme-gala/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/profirst-palerme-gala/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/projets/lena-situations/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/lena-situations/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/lena-situations/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/lena-situations/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/projects/lena-situations/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/lena-situations/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/lena-situations/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/lena-situations/" />
   </url>
   <url>
     <loc>https://alexisvassiviere.com/projets/projet-mqdvqqpk/</loc>
