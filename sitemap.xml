@@ -16,7 +16,7 @@
     - /projets/<id>/          (détail projet, FR)
     - /en/projects/<id>/      (détail projet, EN)
   Tous les projets du seed ont leur page détail : altstadt-vienna,
-  projet-mqdvqqpk (GAZO), portraits-editorial, live-tournee,
+  hm-home, projet-mqdvqqpk (GAZO), portraits-editorial, live-tournee,
   sport-evenementiel, projet-mqdx1i0c (Profirst). Penser à ajouter ici les URL de tout nouveau projet ajouté
   à DETAIL_PROJECT_INDEXES dans generate-pages.js.
 
@@ -83,6 +83,24 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/altstadt-vienna/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/altstadt-vienna/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/altstadt-vienna/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/projets/hm-home/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/hm-home/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/hm-home/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/hm-home/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/projects/hm-home/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/hm-home/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/hm-home/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/hm-home/" />
   </url>
   <url>
     <loc>https://alexisvassiviere.com/projets/projet-mqdvqqpk/</loc>

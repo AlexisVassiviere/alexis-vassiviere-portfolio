@@ -134,9 +134,9 @@ const PAGES = [
 // Index (dans SEED.projects) des projets ayant chacun leur propre page
 // détail. Tous les projets du seed ont désormais un vrai titre FR/EN
 // (les placeholders "Nouveau projet"/"New project" ont été corrigés),
-// donc tous sont inclus. Penser à ajouter ici tout nouveau projet
-// (et ses URL dans sitemap.xml).
-const DETAIL_PROJECT_INDEXES = [0, 1, 2, 3, 4, 5];
+// donc tous sont inclus automatiquement. Penser à ajouter les URL de
+// tout nouveau projet dans sitemap.xml.
+const DETAIL_PROJECT_INDEXES = SEED.projects.map((_, i) => i);
 
 // Chemin absolu d'une photo : le seed stocke des chemins relatifs
 // ("images/..."), qui ne se résolvent pas depuis les sous-dossiers
@@ -332,6 +332,15 @@ function transformHead(html, page, SEED) {
   if (page.lang === 'en') {
     html = html.replace('<html lang="fr"', '<html lang="en"');
   }
+  // Projet à nombre de colonnes propre (proj.cols, voir pdColsFor() dans
+  // index.html) : --pd-grid-cols du style inline de <html> ajusté pour que
+  // la grille statique s'affiche directement avec le bon nombre de colonnes.
+  if (page.kind === 'detail') {
+    const proj = SEED.projects[page.projectIdx];
+    if (proj.cols != null) {
+      html = html.replace(/(<html[^>]*--pd-grid-cols:\s*)\d+/, `$1${parseInt(proj.cols, 10)}`);
+    }
+  }
 
   const title = escapeHtml(page.title);
   const desc = escapeHtml(page.description);
@@ -418,12 +427,13 @@ function transformBody(html, page, SEED) {
         const $grid = $('#pd-grid');
         $grid.empty();
         const photos = proj.photos || [];
+        const sizes = proj.cols != null ? gridSizes(proj.cols, SEED.pdGridWidth) : PD_GRID_SIZES;
         photos.forEach((p, i) => {
           const alt = escapeHtml(projectPhotoAlt(p, page.lang, proj, i, photos.length));
           const src = escapeHtml(absSrc(p.src));
           const srcset = webpSrcset(p.src);
           const resp = srcset
-            ? ` srcset="${escapeHtml(srcset)}" sizes="${escapeHtml(PD_GRID_SIZES)}"`
+            ? ` srcset="${escapeHtml(srcset)}" sizes="${escapeHtml(sizes)}"`
             : '';
           $grid.append(`<div class="tile"><img alt="${alt}" loading="lazy" decoding="async"${resp} src="${src}"></div>`);
         });
