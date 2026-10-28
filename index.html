@@ -511,13 +511,16 @@ body.editing .lightbox .lb-info{display:block}
 
 /* Chaque entrée de la galerie = petit titre du projet (éditable) + vignette,
    empilés avec un espacement réduit (voir HANDOFF.md, 13/06/2026). */
-/* min-width:0 : empêche le titre (white-space:nowrap) d'imposer sa largeur
-   complète à la colonne de la grille — sans ça, sur mobile (4 colonnes),
-   les titres longs forçaient un débordement horizontal de toute la page. */
-.proj-card{display:flex;flex-direction:column;gap:4px;min-width:0}
+/* Titres affichés en entier (demande d'Alexis du 28/10/2026) : ils passent
+   à la ligne au lieu d'être coupés par « … ». justify-content:flex-end
+   cale titre + vignette en bas de la cellule (étirée à la hauteur de la
+   rangée) : les vignettes d'une même rangée restent alignées même quand
+   un titre tient sur plusieurs lignes. min-width:0 + overflow-wrap :
+   un mot très long ne peut pas élargir la colonne. */
+.proj-card{display:flex;flex-direction:column;justify-content:flex-end;gap:4px;min-width:0}
 .proj-title{
   font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  line-height:1.3;overflow-wrap:break-word;
 }
 
 /* Réordonnancement des projets (SortableJS agit sur .proj-card). */
