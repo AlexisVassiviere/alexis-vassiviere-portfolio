@@ -176,9 +176,17 @@ const PD_GRID_SIZES = gridSizes(SEED.pdGridCols, SEED.pdGridWidth);
 // (CSS #project-grid).
 const PROJECT_GRID_SIZES = '(max-width:820px) 50vw, 20vw';
 
+// Nom du projet sur une seule ligne : un titre peut contenir un retour à
+// la ligne voulu (ex. "Spotify\nDaniel Ek", affiché sur 2 lignes grâce à
+// white-space:pre-line) — à aplatir pour <title>, meta, JSON-LD et alt.
+function flatProjectName(proj, lang) {
+  const name = (proj.title && (proj.title[lang] || proj.title.fr)) || '';
+  return name.replace(/\s*\n\s*/g, ' ');
+}
+
 // Titre <title> / og:title / twitter:title d'une page détail projet.
 function projectPageTitle(proj, lang) {
-  const name = (proj.title && (proj.title[lang] || proj.title.fr)) || '';
+  const name = flatProjectName(proj, lang);
   return lang === 'en'
     ? `${name} — Alexis Vassivière | Photographer & Art Director`
     : `${name} — Alexis Vassivière | Photographe & Directeur Artistique`;
@@ -189,7 +197,7 @@ function projectPageTitle(proj, lang) {
 // modifié ou incohérent), pour rester correcte même si la description
 // éditoriale change.
 function projectPageDescription(proj, lang) {
-  const name = (proj.title && (proj.title[lang] || proj.title.fr)) || '';
+  const name = flatProjectName(proj, lang);
   return lang === 'en'
     ? `${name} — a photography project by Alexis Vassivière, photographer and art director based between Brussels and Paris.`
     : `${name} — projet photo par Alexis Vassivière, photographe et directeur artistique basé entre Bruxelles et Paris.`;
@@ -208,7 +216,7 @@ function projectPhotoAlt(photo, lang, proj, i, total) {
       if (v && v.trim()) return v;
     }
   }
-  const name = (proj.title && (proj.title[lang] || proj.title.fr)) || '';
+  const name = flatProjectName(proj, lang);
   return total > 1 ? `${name} — ${i + 1}/${total}` : name;
 }
 
@@ -408,6 +416,7 @@ function transformBody(html, page, SEED) {
         $grid.empty();
         (SEED.projects || []).forEach((proj, i) => {
           const title = escapeHtml((proj.title && (proj.title[page.lang] || proj.title.fr)) || '');
+          const alt = escapeHtml(flatProjectName(proj, page.lang));
           const cover = (proj.photos || [])[0];
           let img = '';
           if (cover) {
@@ -415,7 +424,7 @@ function transformBody(html, page, SEED) {
             const resp = srcset
               ? ` srcset="${escapeHtml(srcset)}" sizes="${escapeHtml(PROJECT_GRID_SIZES)}"`
               : '';
-            img = `<img alt="${title}" loading="lazy" decoding="async"${resp} src="${escapeHtml(absSrc(cover.src))}" class="loaded">`;
+            img = `<img alt="${alt}" loading="lazy" decoding="async"${resp} src="${escapeHtml(absSrc(cover.src))}" class="loaded">`;
           }
           $grid.append(`<div class="proj-card" data-idx="${i}"><div class="proj-title" data-project-field="title" data-project-idx="${i}">${title}</div><div class="tile">${img}</div></div>`);
         });
