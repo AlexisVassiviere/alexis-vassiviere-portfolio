@@ -136,7 +136,7 @@ const PAGES = [
 // (les placeholders "Nouveau projet"/"New project" ont été corrigés),
 // donc tous sont inclus. Penser à ajouter ici tout nouveau projet
 // (et ses URL dans sitemap.xml).
-const DETAIL_PROJECT_INDEXES = [0, 1, 2, 3, 4];
+const DETAIL_PROJECT_INDEXES = [0, 1, 2, 3, 4, 5];
 
 // Chemin absolu d'une photo : le seed stocke des chemins relatifs
 // ("images/..."), qui ne se résolvent pas depuis les sous-dossiers
@@ -172,8 +172,9 @@ function gridSizes(cols, widthPct) {
   return `(max-width:820px) ${Math.round(100 / c)}vw, ${Math.round(w / c)}vw`;
 }
 const PD_GRID_SIZES = gridSizes(SEED.pdGridCols, SEED.pdGridWidth);
-// Galerie Projets : 4 colonnes desktop, 2 sur mobile (CSS #project-grid).
-const PROJECT_GRID_SIZES = '(max-width:820px) 50vw, 25vw';
+// Galerie Projets : 4 colonnes sur 80% de largeur desktop, 2 sur mobile
+// (CSS #project-grid).
+const PROJECT_GRID_SIZES = '(max-width:820px) 50vw, 20vw';
 
 // Titre <title> / og:title / twitter:title d'une page détail projet.
 function projectPageTitle(proj, lang) {
@@ -390,19 +391,24 @@ function transformBody(html, page, SEED) {
       $el.removeAttr('hidden');
       translateFragment($, page.lang, SEED);
       if (key === 'project') {
-        $('.proj-title[data-project-idx]').each((i, el) => {
-          const idx = parseInt($(el).attr('data-project-idx'), 10);
-          const proj = SEED.projects[idx];
-          const title = proj && proj.title && proj.title[page.lang];
-          if (title) {
-            $(el).text(title);
-            $(el).closest('.proj-card').find('img').attr('alt', title);
+        // Galerie Projets reconstruite depuis le seed (comme #pd-grid) : le
+        // #project-grid statique d'index.html est un instantané du DOM pris
+        // à l'export CMS, qui ne suit pas l'ajout ou le réordonnancement
+        // des projets côté code. Même balisage que buildProjectTile().
+        const $grid = $('#project-grid');
+        $grid.empty();
+        (SEED.projects || []).forEach((proj, i) => {
+          const title = escapeHtml((proj.title && (proj.title[page.lang] || proj.title.fr)) || '');
+          const cover = (proj.photos || [])[0];
+          let img = '';
+          if (cover) {
+            const srcset = webpSrcset(cover.src);
+            const resp = srcset
+              ? ` srcset="${escapeHtml(srcset)}" sizes="${escapeHtml(PROJECT_GRID_SIZES)}"`
+              : '';
+            img = `<img alt="${title}" loading="lazy" decoding="async"${resp} src="${escapeHtml(absSrc(cover.src))}" class="loaded">`;
           }
-        });
-        // srcset WebP sur les couvertures statiques de la galerie Projets.
-        $('#project-grid img').each((i, el) => {
-          const srcset = webpSrcset($(el).attr('src') || '');
-          if (srcset) $(el).attr('srcset', srcset).attr('sizes', PROJECT_GRID_SIZES);
+          $grid.append(`<div class="proj-card" data-idx="${i}"><div class="proj-title" data-project-field="title" data-project-idx="${i}">${title}</div><div class="tile">${img}</div></div>`);
         });
       } else if (key === 'detail') {
         const proj = SEED.projects[page.projectIdx];

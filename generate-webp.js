@@ -1,7 +1,8 @@
 /* ============================================================================
    GÉNÉRATION DES VARIANTES WEBP RESPONSIVE (audit 4.1)
    ----------------------------------------------------------------------------
-   Pour chaque JPEG de images/ACCUEIL/ et images/embedded/, produit trois
+   Pour chaque JPEG de images/ACCUEIL/, images/embedded/ et images/PROJETS/
+   (photos des projets ajoutés côté code), produit trois
    variantes WebP redimensionnées : <nom>-480.webp, <nom>-960.webp,
    <nom>-1600.webp (largeur max, jamais agrandi au-delà de l'original).
 
@@ -23,7 +24,7 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-const DIRS = ['images/ACCUEIL', 'images/embedded'];
+const DIRS = ['images/ACCUEIL', 'images/embedded', 'images/PROJETS'];
 const WIDTHS = [480, 960, 1600];
 const QUALITY = 80;
 
