@@ -4,6 +4,14 @@
   "trailingSlash": true,
   "redirects": [
     { "source": "/projets/projet-mqdx1i0c/", "destination": "/projets/profirst-palerme-gala/", "permanent": true },
-    { "source": "/en/projects/projet-mqdx1i0c/", "destination": "/en/projects/profirst-palerme-gala/", "permanent": true }
+    { "source": "/en/projects/projet-mqdx1i0c/", "destination": "/en/projects/profirst-palerme-gala/", "permanent": true },
+    { "source": "/projets/projet-mqdvqqpk/", "destination": "/projets/gazo-bsb/", "permanent": true },
+    { "source": "/en/projects/projet-mqdvqqpk/", "destination": "/en/projects/gazo-bsb/", "permanent": true },
+    { "source": "/projets/portraits-editorial/", "destination": "/projets/oxlade-sony-music/", "permanent": true },
+    { "source": "/en/projects/portraits-editorial/", "destination": "/en/projects/oxlade-sony-music/", "permanent": true },
+    { "source": "/projets/live-tournee/", "destination": "/projets/spotify-daniel-ek/", "permanent": true },
+    { "source": "/en/projects/live-tournee/", "destination": "/en/projects/spotify-daniel-ek/", "permanent": true },
+    { "source": "/projets/sport-evenementiel/", "destination": "/projets/camille-yembe/", "permanent": true },
+    { "source": "/en/projects/sport-evenementiel/", "destination": "/en/projects/camille-yembe/", "permanent": true }
   ]
 }

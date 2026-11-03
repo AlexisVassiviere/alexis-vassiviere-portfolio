@@ -16,8 +16,8 @@
     - /projets/<id>/          (détail projet, FR)
     - /en/projects/<id>/      (détail projet, EN)
   Tous les projets du seed ont leur page détail : oz-warner-japan, altstadt-vienna,
-  hm-home, profirst-palerme-gala, lena-situations, patrick-habirora, projet-mqdvqqpk (GAZO), portraits-editorial, live-tournee,
-  sport-evenementiel. L'ancien projet projet-mqdx1i0c (Profirst) a été
+  hm-home, profirst-palerme-gala, lena-situations, patrick-habirora, gazo-bsb, oxlade-sony-music, spotify-daniel-ek,
+  camille-yembe. L'ancien projet projet-mqdx1i0c (Profirst) a été
   retiré le 28/10/2026 et redirigé vers profirst-palerme-gala (vercel.json). Penser à ajouter ici les URL de tout nouveau projet ajouté
   à DETAIL_PROJECT_INDEXES dans generate-pages.js.
 
@@ -176,76 +176,76 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/patrick-habirora/" />
   </url>
   <url>
-    <loc>https://alexisvassiviere.com/projets/projet-mqdvqqpk/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <loc>https://alexisvassiviere.com/projets/gazo-bsb/</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/projet-mqdvqqpk/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/projet-mqdvqqpk/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/projet-mqdvqqpk/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/gazo-bsb/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/gazo-bsb/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/gazo-bsb/" />
   </url>
   <url>
-    <loc>https://alexisvassiviere.com/en/projects/projet-mqdvqqpk/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <loc>https://alexisvassiviere.com/en/projects/gazo-bsb/</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/projet-mqdvqqpk/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/projet-mqdvqqpk/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/projet-mqdvqqpk/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/gazo-bsb/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/gazo-bsb/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/gazo-bsb/" />
   </url>
   <url>
-    <loc>https://alexisvassiviere.com/projets/portraits-editorial/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <loc>https://alexisvassiviere.com/projets/oxlade-sony-music/</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/portraits-editorial/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/portraits-editorial/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/portraits-editorial/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/oxlade-sony-music/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/oxlade-sony-music/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/oxlade-sony-music/" />
   </url>
   <url>
-    <loc>https://alexisvassiviere.com/en/projects/portraits-editorial/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <loc>https://alexisvassiviere.com/en/projects/oxlade-sony-music/</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/portraits-editorial/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/portraits-editorial/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/portraits-editorial/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/oxlade-sony-music/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/oxlade-sony-music/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/oxlade-sony-music/" />
   </url>
   <url>
-    <loc>https://alexisvassiviere.com/projets/live-tournee/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <loc>https://alexisvassiviere.com/projets/spotify-daniel-ek/</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/live-tournee/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/live-tournee/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/live-tournee/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/spotify-daniel-ek/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/spotify-daniel-ek/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/spotify-daniel-ek/" />
   </url>
   <url>
-    <loc>https://alexisvassiviere.com/en/projects/live-tournee/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <loc>https://alexisvassiviere.com/en/projects/spotify-daniel-ek/</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/live-tournee/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/live-tournee/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/live-tournee/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/spotify-daniel-ek/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/spotify-daniel-ek/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/spotify-daniel-ek/" />
   </url>
   <url>
-    <loc>https://alexisvassiviere.com/projets/sport-evenementiel/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <loc>https://alexisvassiviere.com/projets/camille-yembe/</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/sport-evenementiel/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/sport-evenementiel/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/sport-evenementiel/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/camille-yembe/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/camille-yembe/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/camille-yembe/" />
   </url>
   <url>
-    <loc>https://alexisvassiviere.com/en/projects/sport-evenementiel/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <loc>https://alexisvassiviere.com/en/projects/camille-yembe/</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/sport-evenementiel/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/sport-evenementiel/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/sport-evenementiel/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/camille-yembe/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/camille-yembe/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/camille-yembe/" />
   </url>
   <url>
     <loc>https://alexisvassiviere.com/contact/</loc>
