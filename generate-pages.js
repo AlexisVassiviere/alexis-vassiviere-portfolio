@@ -74,7 +74,7 @@ const PAGES = [
     altCanonical: `${SITE}/`,
     xdefault: `${SITE}/`,
     title: 'Alexis Vassivière — Photographer & Art Director',
-    description: "Alexis Vassivière — Photographer & Art Director. 14 years of experience. Sony Music, Burberry, RTBF, NRJ, Elle Belgique. Based between Brussels and Paris.",
+    description: "Alexis Vassivière — Photographer & Art Director. Over 15 years of experience. Sony Music, Burberry, RTBF, NRJ, Elle Belgique. Based between Brussels and Paris.",
     ogLocale: 'en_US',
     ogLocaleAlt: 'fr_FR',
   },
@@ -213,12 +213,18 @@ function projectPageTitle(proj, lang) {
     : `${name} — Alexis Vassivière | Photographe & Directeur Artistique`;
 }
 
-// Meta description d'une page détail projet. Générée à partir du titre
-// du projet (stable) plutôt que de proj.desc (texte libre, peut être
-// modifié ou incohérent), pour rester correcte même si la description
-// éditoriale change.
+// Meta description d'une page détail projet : nom + description du projet
+// (proj.desc, sur une ligne) + signature — une description différente par
+// page. Sans description, phrase générique construite sur le seul titre.
 function projectPageDescription(proj, lang) {
   const name = flatProjectName(proj, lang);
+  const desc = ((proj.desc && (proj.desc[lang] || proj.desc.fr)) || '')
+    .replace(/\s*\n\s*/g, ' ').trim().replace(/\.$/, '');
+  if (desc) {
+    return lang === 'en'
+      ? `${name}: ${desc}. Photos by Alexis Vassivière, photographer (Brussels, Paris).`
+      : `${name} : ${desc}. Photos : Alexis Vassivière, photographe (Bruxelles, Paris).`;
+  }
   return lang === 'en'
     ? `${name} — a photography project by Alexis Vassivière, photographer and art director based between Brussels and Paris.`
     : `${name} — projet photo par Alexis Vassivière, photographe et directeur artistique basé entre Bruxelles et Paris.`;
@@ -433,6 +439,14 @@ function transformBody(html, page, SEED) {
     html = html.slice(0, frag.start) + newFrag + html.slice(frag.end);
   }
 
+  // --- pied de page : traduit aussi (lien « Mentions légales » / « Legal notice ») ---
+  {
+    const frag = extractById(html, 'footer', 'site-footer');
+    const $ = cheerio.load(frag.text, null, false);
+    translateFragment($, page.lang, SEED);
+    html = html.slice(0, frag.start) + $.root().html() + html.slice(frag.end);
+  }
+
   // --- sections : visibilité + traduction de la section active ---
   // "detail" (#view-project-detail) n'est actif que pour les pages
   // détail projet (page.kind === 'detail') ; sinon la section active
@@ -474,6 +488,11 @@ function transformBody(html, page, SEED) {
         $el.attr('data-idx', String(page.projectIdx));
         $('#pd-title').text((proj.title && proj.title[page.lang]) || '');
         $('#pd-desc').text((proj.desc && proj.desc[page.lang]) || '');
+        // « Projet suivant » (même règle que renderProjectDetail() côté
+        // client) : son href est posé ensuite par transformNavLinks().
+        const next = SEED.projects[(page.projectIdx + 1) % SEED.projects.length];
+        $('#pd-next').attr('data-nav', `#/project/${encodeURIComponent(next.id)}`);
+        $('#pd-next-name').text(flatProjectName(next, page.lang));
         const $grid = $('#pd-grid');
         $grid.empty();
         const photos = proj.photos || [];
