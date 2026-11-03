@@ -51,7 +51,7 @@ const cheerio = require('cheerio');
 
 const ROOT = __dirname;
 const SRC_PATH = path.join(ROOT, 'index.html');
-const SITE = 'https://alexisvassiviere.com';
+const SITE = 'https://www.alexisvassiviere.com';
 
 // ---------------------------------------------------------------------
 // Lecture du fichier source + des données seed (texts.fr/en, projects)
@@ -175,6 +175,27 @@ const PD_GRID_SIZES = gridSizes(SEED.pdGridCols, SEED.pdGridWidth);
 // Galerie Projets : 4 colonnes sur 80% de largeur desktop, 2 sur mobile
 // (CSS #project-grid).
 const PROJECT_GRID_SIZES = '(max-width:820px) 50vw, 20vw';
+
+// Adresse de la page correspondant à une route interne "#/..." (valeur de
+// l'attribut data-nav des liens), dans la langue de la page générée. Même
+// logique que routePath() dans index.html — ici tous les projets du seed
+// ont leur page.
+function routePath(h, lang) {
+  const en = lang === 'en';
+  const detail = h.match(/^#\/project\/(.+)$/);
+  if (detail) return (en ? '/en/projects/' : '/projets/') + detail[1] + '/';
+  if (h.startsWith('#/project')) return en ? '/en/projects/' : '/projets/';
+  if (h.startsWith('#/contact')) return en ? '/en/contact/' : '/contact/';
+  return en ? '/en/' : '/';
+}
+
+// Liens internes (logo, menu, « ← Projets », vignettes de projets) : href
+// recalculé dans la langue de la page à partir de data-nav, pour que
+// Google trouve directement les bonnes adresses dans le HTML.
+function transformNavLinks(html, page) {
+  return html.replace(/<a\b[^>]*\bdata-nav="([^"]*)"[^>]*>/g, (tag, nav) =>
+    tag.replace(/\bhref="[^"]*"/, `href="${routePath(nav, page.lang)}"`));
+}
 
 // Nom du projet sur une seule ligne : un titre peut contenir un retour à
 // la ligne voulu (ex. "Spotify\nDaniel Ek", affiché sur 2 lignes grâce à
@@ -426,7 +447,9 @@ function transformBody(html, page, SEED) {
               : '';
             img = `<img alt="${alt}" loading="lazy" decoding="async"${resp} src="${escapeHtml(absSrc(cover.src))}" class="loaded">`;
           }
-          $grid.append(`<div class="proj-card" data-idx="${i}"><div class="proj-title" data-project-field="title" data-project-idx="${i}">${title}</div><div class="tile">${img}</div></div>`);
+          const route = `#/project/${encodeURIComponent(proj.id)}`;
+          const link = `<a class="proj-link" data-nav="${escapeHtml(route)}" href="${escapeHtml(routePath(route, page.lang))}">${img}</a>`;
+          $grid.append(`<div class="proj-card" data-idx="${i}"><div class="proj-title" data-project-field="title" data-project-idx="${i}">${title}</div><div class="tile">${link}</div></div>`);
         });
       } else if (key === 'detail') {
         const proj = SEED.projects[page.projectIdx];
@@ -464,6 +487,7 @@ for (const page of PAGES) {
   let html = src;
   html = transformHead(html, page, SEED);
   html = transformBody(html, page, SEED);
+  html = transformNavLinks(html, page);
 
   const outPath = path.join(ROOT, page.outPath);
   fs.mkdirSync(path.dirname(outPath), { recursive: true });

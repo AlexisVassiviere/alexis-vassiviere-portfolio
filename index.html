@@ -16,23 +16,25 @@
 <meta name="description" content="Alexis Vassivière — Photographe &amp; Directeur Artistique. 14 ans d'expérience. Sony Music, Burberry, RTBF, NRJ, Elle Belgique. Basé entre Bruxelles et Paris.">
 <meta name="keywords" content="photographe professionnel Belgique, photographe live concert Bruxelles, photographe portrait artiste, photographe commercial marque, photographe éditorial mode, photographe sport, photographe événementiel, directeur artistique, professional photographer Belgium, live music photographer Brussels, artist portrait photographer, brand campaign photographer, editorial fashion photographer">
 
-<!-- URL canonique + alternates de langue. Le site n'a qu'une seule URL
-     (le switch FR/EN change la langue en JS, pas l'adresse) : on déclare
-     donc cette URL comme version par défaut ("x-default") en plus du FR.
-     Si le domaine change un jour, ne modifier que ces 3 lignes + les
-     balises og:url / og:image / twitter:image ci-dessous. -->
-<link rel="canonical" href="https://alexisvassiviere.com/">
-<link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/">
-<link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/">
-<link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/">
+<!-- URL canonique + alternates de langue (adaptés pour chaque page générée
+     par generate-pages.js). Domaine officiel = www.alexisvassiviere.com :
+     c'est l'adresse principale chez Vercel (alexisvassiviere.com y redirige
+     en 308) — une canonical vers l'adresse sans www pointerait vers une
+     redirection. Si le domaine change un jour : chercher/remplacer
+     l'adresse ici (canonical, hreflang, og, twitter, JSON-LD), dans
+     generate-pages.js (SITE), sitemap.xml et robots.txt. -->
+<link rel="canonical" href="https://www.alexisvassiviere.com/">
+<link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/">
+<link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/">
 
 <!-- Open Graph (Facebook, LinkedIn, WhatsApp...) -->
 <meta property="og:site_name" content="Alexis Vassivière">
 <meta property="og:title" content="Alexis Vassivière — Photographe &amp; Directeur Artistique">
 <meta property="og:description" content="Photographe &amp; Directeur Artistique — Live, Portrait, Commercial. Basé entre Bruxelles et Paris, disponible pour des missions dans le monde entier.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://alexisvassiviere.com/">
-<meta property="og:image" content="https://alexisvassiviere.com/images/ACCUEIL/04-portrait-lunettes-blanches.jpg">
+<meta property="og:url" content="https://www.alexisvassiviere.com/">
+<meta property="og:image" content="https://www.alexisvassiviere.com/images/ACCUEIL/04-portrait-lunettes-blanches.jpg">
 <meta property="og:image:width" content="1437">
 <meta property="og:image:height" content="1800">
 <meta property="og:locale" content="fr_FR">
@@ -42,7 +44,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Alexis Vassivière — Photographe &amp; Directeur Artistique">
 <meta name="twitter:description" content="Photographe &amp; Directeur Artistique — Live, Portrait, Commercial. Basé entre Bruxelles et Paris.">
-<meta name="twitter:image" content="https://alexisvassiviere.com/images/ACCUEIL/04-portrait-lunettes-blanches.jpg">
+<meta name="twitter:image" content="https://www.alexisvassiviere.com/images/ACCUEIL/04-portrait-lunettes-blanches.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -76,10 +78,10 @@
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://alexisvassiviere.com/#person",
+      "@id": "https://www.alexisvassiviere.com/#person",
       "name": "Alexis Vassivière",
-      "url": "https://alexisvassiviere.com/",
-      "image": "https://alexisvassiviere.com/images/ACCUEIL/04-portrait-lunettes-blanches.jpg",
+      "url": "https://www.alexisvassiviere.com/",
+      "image": "https://www.alexisvassiviere.com/images/ACCUEIL/04-portrait-lunettes-blanches.jpg",
       "jobTitle": ["Photographer", "Art Director"],
       "description": "Photographe et directeur artistique avec 14 ans d'expérience, spécialisé en portraits d'artistes et éditorial mode, campagnes de marque, et photographie live / tournées. A travaillé pour Sony Music, Burberry, RTBF, NRJ, Nostalgie, Elle Belgique, Playtwo et HUG — Help U Grow. Basé entre Paris et Bruxelles, disponible pour des missions dans le monde entier.",
       "email": "contact@alexisvassiviere.com",
@@ -109,21 +111,21 @@
     },
     {
       "@type": "WebSite",
-      "@id": "https://alexisvassiviere.com/#website",
+      "@id": "https://www.alexisvassiviere.com/#website",
       "name": "Alexis Vassivière — Photographer & Art Director",
-      "url": "https://alexisvassiviere.com/",
+      "url": "https://www.alexisvassiviere.com/",
       "inLanguage": ["fr", "en"],
-      "about": { "@id": "https://alexisvassiviere.com/#person" }
+      "about": { "@id": "https://www.alexisvassiviere.com/#person" }
     },
     {
       "@type": "WebPage",
-      "@id": "https://alexisvassiviere.com/#webpage",
-      "url": "https://alexisvassiviere.com/",
+      "@id": "https://www.alexisvassiviere.com/#webpage",
+      "url": "https://www.alexisvassiviere.com/",
       "name": "Alexis Vassivière — Photographer & Art Director",
       "description": "Alexis Vassivière — Photographe & Directeur Artistique. 14 ans d'expérience. Sony Music, Burberry, RTBF, NRJ, Elle Belgique. Basé entre Bruxelles et Paris.",
       "inLanguage": "fr",
-      "isPartOf": { "@id": "https://alexisvassiviere.com/#website" },
-      "about": { "@id": "https://alexisvassiviere.com/#person" }
+      "isPartOf": { "@id": "https://www.alexisvassiviere.com/#website" },
+      "about": { "@id": "https://www.alexisvassiviere.com/#person" }
     }
   ]
 }
@@ -520,6 +522,17 @@ body.editing .lightbox .lb-info{display:block}
    un titre tient sur plusieurs lignes. min-width:0 + overflow-wrap :
    un mot très long ne peut pas élargir la colonne. */
 .proj-card{display:flex;flex-direction:column;justify-content:flex-end;gap:4px;min-width:0}
+/* Lien vers la page du projet, autour de la couverture : vraie adresse
+   pour Google, et vignette atteignable au clavier (Tab + Entrée). Le
+   contour de focus est un calque posé sur la photo (un outline serait
+   recouvert par l'image et coupé par overflow:hidden), blanc + noir pour
+   rester visible sur une photo claire comme sombre. */
+.proj-link{display:block;width:100%;height:100%;cursor:pointer}
+.proj-link:focus-visible{outline:none}
+.proj-link:focus-visible::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  box-shadow:inset 0 0 0 2px #fff, inset 0 0 0 4px var(--ink);
+}
 /* Typo des titres (choix d'Alexis du 28/10/2026, « proposition A ») :
    Space Grotesk en capitales, comme le menu et le titre des pages projet. */
 .proj-title{
@@ -820,12 +833,16 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
 <body style="">
 
 <header class="site" id="header">
-  <a href="#/" class="brand" data-i18n-html="brand">Alexis Vassivière</a>
+  <!-- Liens internes : href = vraie adresse de la page (suivie et indexée
+       par Google), data-nav = route interne. Le href est recalculé selon la
+       langue (applyNavLinks() dans le script, et generate-pages.js au build)
+       et un clic reste une navigation instantanée (goTo()). -->
+  <a href="/" data-nav="#/" class="brand" data-i18n-html="brand">Alexis Vassivière</a>
   <p class="home-tagline" data-i18n="home.tagline">Photographe, directeur artistique, vidéaste</p>
   <nav class="nav" id="nav">
-    <a href="#/" data-route="home" data-i18n="nav.work" class="active">Portfolio</a>
-    <a href="#/project" data-route="project" data-i18n="nav.project" class="">Projet</a>
-    <a href="#/contact" data-route="contact" data-i18n="nav.contact" class="">Contact</a>
+    <a href="/" data-nav="#/" data-route="home" data-i18n="nav.work" class="active">Portfolio</a>
+    <a href="/projets/" data-nav="#/project" data-route="project" data-i18n="nav.project" class="">Projet</a>
+    <a href="/contact/" data-nav="#/contact" data-route="contact" data-i18n="nav.contact" class="">Contact</a>
     <a href="https://www.instagram.com/alexisvassiviere/" target="_blank" rel="noopener" id="ig-link">Instagram</a>
     <span class="lang" role="group" aria-label="Language">
       <button data-lang="fr" class="on">FR</button>
@@ -904,7 +921,7 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
   <div class="project-detail">
     <main class="page">
       <div class="head">
-        <div class="block-row" data-block="back"><span class="block-handle" title="Déplacer ce bloc">⠿</span><a href="#/project" class="back" data-i18n="project.back">← Projets</a></div>
+        <div class="block-row" data-block="back"><span class="block-handle" title="Déplacer ce bloc">⠿</span><a href="/projets/" data-nav="#/project" class="back" data-i18n="project.back">← Projets</a></div>
         <!-- Titre et description sont propres à chaque projet (state.projects[i].title/.desc),
              éditables en FR/EN via data-project-field, voir commitText() dans le script. -->
         <div class="block-row" data-block="title" style=""><span class="block-handle" title="Déplacer ce bloc">⠿</span><h2 id="pd-title" data-project-field="title" style="">Nouveau projet</h2></div>
@@ -1597,6 +1614,7 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
   /* ----- RENDER ----- */
   function renderAll(){
     applyI18n();
+    applyNavLinks();
     renderGrid();
     renderContact();
     renderFooter();
@@ -2091,16 +2109,18 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
     applyBlockStyles();
   }
   // Carte d'un projet dans la galerie : petit titre éditable (nom du projet)
-  // + couverture (1re photo de la série). Un clic (hors mode édition) ouvre
-  // la page détail de la série (#/project/<id>).
+  // + couverture (1re photo de la série) dans un vrai lien vers la page du
+  // projet (/projets/<id>/). Un clic (hors mode édition) ouvre la page
+  // détail de la série (route #/project/<id>, voir goTo()).
   function buildProjectTile(proj, idx){
     const card = document.createElement('div');
     card.className = 'proj-card';
     card.dataset.idx = idx;
 
+    const detailRoute = '#/project/' + encodeURIComponent(proj.id);
     const goToDetail = () => {
       if(document.body.classList.contains('editing')) return;
-      location.hash = '#/project/' + encodeURIComponent(proj.id);
+      goTo(detailRoute);
     };
 
     const title = document.createElement('div');
@@ -2126,14 +2146,19 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
     // (CSS #project-grid).
     if(cover) setImgSrc(img, cover.src, '(max-width:820px) 50vw, 20vw');
     if(img.complete && img.naturalWidth > 0) img.classList.add('loaded');
-    div.appendChild(img);
+    // Le clic sur ce lien est intercepté par le gestionnaire global des
+    // liens [data-nav] (navigation instantanée, rien en mode édition).
+    const link = document.createElement('a');
+    link.className = 'proj-link';
+    link.dataset.nav = detailRoute;
+    link.href = routeHref(detailRoute);
+    link.appendChild(img);
+    div.appendChild(link);
 
     const tools = document.createElement('div');
     tools.className = 'edit-tools';
     tools.innerHTML = `<button class="del" title="Supprimer" type="button">✕</button>`;
     div.appendChild(tools);
-
-    div.addEventListener('click', goToDetail);
 
     tools.querySelector('.del').addEventListener('click', (e) => {
       e.stopPropagation();
@@ -2171,7 +2196,7 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
     if(!view) return;
     const idx = (state.projects||[]).findIndex(p => p.id === id);
     if(idx === -1){
-      location.hash = '#/project';
+      goTo('#/project', true);
       return;
     }
     const proj = state.projects[idx];
@@ -2251,11 +2276,69 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
     else renderProjectIndex();
   }
 
-  // Permet de servir des URL distinctes par page/langue (générées par
-  // generate-pages.js : /, /en/, /projets/, /en/projects/, /contact/,
-  // /en/contact/) tout en gardant le routage par # pour la navigation
-  // interne (SPA). Si location.hash est vide (arrivée directe sur une de
-  // ces URL), on déduit la route depuis location.pathname.
+  /* ----- ADRESSES DES PAGES -----
+     Chaque vue a sa vraie adresse, générée au build par generate-pages.js :
+     /, /projets/, /projets/<id>/, /contact/ (et /en/, /en/projects/,
+     /en/projects/<id>/, /en/contact/). Les liens du site pointent vers ces
+     adresses — Google suit et indexe un href="/projets/", pas un
+     href="#/project". En interne, la vue reste désignée par une route
+     "#/..." (#/, #/project, #/project/<id>, #/contact) : currentHash() la
+     déduit de l'adresse, goTo() change d'adresse sans recharger la page.
+     Les anciens liens "#/..." continuent de fonctionner. */
+  // Adresse de la page correspondant à une route, dans la langue demandée.
+  // Seuls les projets du seed publié ont une page générée : un projet créé
+  // en mode édition et pas encore publié garde l'adresse "/#/project/<id>".
+  function routePath(h, lang){
+    const en = lang === 'en';
+    const detail = h.match(/^#\/project\/(.+)$/);
+    if(detail){
+      const published = (SEED.projects || []).some(p => encodeURIComponent(p.id) === detail[1]);
+      return published ? (en ? '/en/projects/' : '/projets/') + detail[1] + '/' : (en ? '/en/' : '/') + h;
+    }
+    if(h.startsWith('#/project')) return en ? '/en/projects/' : '/projets/';
+    if(h.startsWith('#/contact')) return en ? '/en/contact/' : '/contact/';
+    return en ? '/en/' : '/';
+  }
+  // href d'un lien interne. Fichier ouvert en direct (file://) : les pages
+  // générées n'existent pas, on garde le lien "#/...".
+  function routeHref(h){
+    return location.protocol === 'file:' ? h : routePath(h, state.lang);
+  }
+  // Recalcule le href des liens [data-nav] du HTML (logo, menu, « ← Projets »)
+  // dans la langue affichée.
+  function applyNavLinks(){
+    $$('a[data-nav]').forEach(a => { a.setAttribute('href', routeHref(a.dataset.nav)); });
+  }
+  // Navigation interne vers une route, sans rechargement : nouvelle entrée
+  // dans l'historique (boutons Précédent/Suivant, voir "popstate"), ou
+  // remplacement de l'entrée courante si replace est vrai.
+  // window.history : "history" désigne ici la pile d'annulation (undo).
+  function goTo(h, replace){
+    if(location.protocol === 'file:'){ location.hash = h; return; }
+    const url = routePath(h, state.lang);
+    if(url !== location.pathname + location.hash){
+      window.history[replace ? 'replaceState' : 'pushState'](null, '', url);
+    }
+    route();
+  }
+  // Titre de l'onglet de chaque vue — à garder identique aux <title> des
+  // pages générées (PAGES, projectPageTitle() dans generate-pages.js).
+  function pageTitle(view, projectId){
+    const en = state.lang === 'en';
+    const suffix = en ? 'Alexis Vassivière | Photographer & Art Director'
+                      : 'Alexis Vassivière | Photographe & Directeur Artistique';
+    if(view === 'home') return en ? 'Alexis Vassivière — Photographer & Art Director'
+                                  : 'Alexis Vassivière — Photographe & Directeur Artistique';
+    if(view === 'contact') return 'Contact — ' + suffix;
+    if(view === 'detail'){
+      const proj = (state.projects || []).find(p => p.id === projectId);
+      if(proj) return projectTitle(proj).replace(/\s*\n\s*/g, ' ') + ' — ' + suffix;
+    }
+    return (en ? 'Projects' : 'Projets') + ' — ' + suffix;
+  }
+
+  // Route de la vue à afficher : le "#/..." s'il y en a un (anciens liens,
+  // fichier ouvert en direct), sinon déduite de location.pathname.
   function currentHash(){
     if(location.hash) return location.hash;
     const p = location.pathname.replace(/^\/en(?=\/|$)/, '');
@@ -2292,6 +2375,7 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
     });
     document.body.classList.remove('menu-open');
     $('#nav').classList.remove('open');
+    document.title = pageTitle(isContact ? 'contact' : isProjectDetail ? 'detail' : isProjectIndex ? 'project' : 'home', projectId);
     window.scrollTo({top:0,behavior:'instant'});
     if(isProjectDetail) renderProjectDetail(projectId);
     else if(isProjectIndex) renderProjectIndex();
@@ -2306,6 +2390,21 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
     if(document.body.classList.contains('editing')) enableEditables(true);
   }
   window.addEventListener('hashchange', route);
+  window.addEventListener('popstate', route);
+
+  // Clic sur un lien interne [data-nav] : navigation instantanée (goTo())
+  // au lieu d'un rechargement. Cmd/Ctrl/Maj+clic et clic molette gardent le
+  // comportement normal (ouvrir dans un nouvel onglet). En mode édition,
+  // aucun de ces clics ne change de page — libellés du menu = texte
+  // modifiable, vignettes de projet = glisser-déposer (comme avant les
+  // vraies adresses, quand un lien modifiable "#/..." ne naviguait pas).
+  document.addEventListener('click', e => {
+    const a = e.target.closest && e.target.closest('a[data-nav]');
+    if(!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    if(document.body.classList.contains('editing')) return;
+    goTo(a.dataset.nav);
+  });
 
   // Bouton menu mobile optionnel : si un élément #menuBtn est ajouté au
   // markup plus tard, il togglera la nav. Garde de sécurité pour éviter
@@ -2318,18 +2417,11 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
   });
 
   /* ----- LANG ----- */
-  // Chemin statique équivalent à la route courante dans la langue demandée
-  // (les pages /en/... sont générées au build par generate-pages.js).
-  // Les pages détail projet gardent le routage par hash sur l'accueil de la
-  // langue cible : /en/#/project/<id> fonctionne pour tous les projets, y
-  // compris ceux qui n'ont pas (encore) de page statique dédiée.
+  // Adresse équivalente à la vue courante dans la langue demandée (les pages
+  // /en/... sont générées au build par generate-pages.js ; un projet pas
+  // encore publié retombe sur /en/#/project/<id>, voir routePath()).
   function langEquivalentUrl(lang){
-    const h = currentHash();
-    const en = lang === 'en';
-    if(/^#\/project\/./.test(h)) return (en ? '/en/' : '/') + h;
-    if(h.startsWith('#/project')) return en ? '/en/projects/' : '/projets/';
-    if(h.startsWith('#/contact')) return en ? '/en/contact/' : '/contact/';
-    return en ? '/en/' : '/';
+    return routePath(currentHash(), lang);
   }
   $$('.lang button').forEach(b => {
     b.addEventListener('click', () => {
@@ -3006,10 +3098,13 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
     toast("Téléchargé : index.html + backup JSON");
   }
   async function buildExportHTML(exportState){
-    // Fetch our own source if possible (cleanest), else clone DOM
+    // Fetch our own source if possible (cleanest), else clone DOM.
+    // La source est toujours "/" (index.html tel quel) : l'adresse affichée
+    // peut être une page générée (/projets/<id>/, /en/...), dont le <head>
+    // et la langue ont été adaptés au build — l'exporter écraserait la source.
     let baseHTML = null;
     try{
-      const r = await fetch(window.location.href, {cache:'no-store'});
+      const r = await fetch(location.protocol === 'file:' ? location.href : '/', {cache:'no-store'});
       if(r.ok) baseHTML = await r.text();
     }catch(e){}
     if(!baseHTML){
@@ -3071,6 +3166,12 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
   }
 
   /* ----- BOOT ----- */
+  // Ancien lien "/#/project/<id>" (partagé avant les vraies adresses) : on
+  // affiche la vraie adresse de la page à la place, sans recharger.
+  if(location.protocol !== 'file:' && /^#\//.test(location.hash)){
+    const url = routePath(location.hash, state.lang);
+    if(!url.includes('#')) window.history.replaceState(null, '', url + location.search);
+  }
   renderAll();
   route();
   migrateLegacyImages(); // bascule d'éventuelles images base64 héritées vers IndexedDB

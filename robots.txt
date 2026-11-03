@@ -43,4 +43,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://alexisvassiviere.com/sitemap.xml
+Sitemap: https://www.alexisvassiviere.com/sitemap.xml
