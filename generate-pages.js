@@ -349,6 +349,10 @@ function transformJsonLd(html, page, SEED) {
     const proj = SEED.projects[page.projectIdx];
     node.image = (proj.photos || []).map(p => `${SITE}${absSrc(p.src)}`);
   }
+  // Le noeud WebPage d'index.html décrit la page d'accueil "/" : on le
+  // remplace (au lieu de le garder à côté), sinon chaque page générée
+  // déclarerait deux pages différentes.
+  data['@graph'] = data['@graph'].filter(n => n['@id'] !== `${SITE}/#webpage`);
   data['@graph'].push(node);
   const newJson = JSON.stringify(data, null, 2);
   return html.slice(0, m.index) + m[1] + newJson + m[3] + html.slice(m.index + m[0].length);
@@ -392,6 +396,20 @@ function transformHead(html, page, SEED) {
 
   html = html.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${title}">`);
   html = html.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${desc}">`);
+
+  // Page détail projet : l'aperçu d'un lien partagé (WhatsApp, LinkedIn,
+  // iMessage…) montre la couverture du projet plutôt que l'image du site.
+  // Ses dimensions ne sont pas connues ici : og:image:width/height sont
+  // retirés (facultatifs, l'aperçu les lit dans l'image).
+  if (page.kind === 'detail') {
+    const cover = (SEED.projects[page.projectIdx].photos || [])[0];
+    if (cover && !/^(data:|idb:)/.test(cover.src)) {
+      const coverUrl = escapeHtml(`${SITE}${absSrc(cover.src)}`);
+      html = html.replace(/<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${coverUrl}">`);
+      html = html.replace(/<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${coverUrl}">`);
+      html = html.replace(/\n<meta property="og:image:(width|height)" content="[^"]*">/g, '');
+    }
+  }
 
   html = transformJsonLd(html, page, SEED);
   return html;
