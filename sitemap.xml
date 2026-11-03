@@ -15,7 +15,7 @@
   ...ainsi que des pages détail par projet (Phase 2) :
     - /projets/<id>/          (détail projet, FR)
     - /en/projects/<id>/      (détail projet, EN)
-  Tous les projets du seed ont leur page détail : altstadt-vienna,
+  Tous les projets du seed ont leur page détail : oz-warner-japan, altstadt-vienna,
   hm-home, profirst-palerme-gala, lena-situations, patrick-habirora, projet-mqdvqqpk (GAZO), portraits-editorial, live-tournee,
   sport-evenementiel. L'ancien projet projet-mqdx1i0c (Profirst) a été
   retiré le 28/10/2026 et redirigé vers profirst-palerme-gala (vercel.json). Penser à ajouter ici les URL de tout nouveau projet ajouté
@@ -66,6 +66,24 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/projets/oz-warner-japan/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/oz-warner-japan/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/oz-warner-japan/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/oz-warner-japan/" />
+  </url>
+  <url>
+    <loc>https://alexisvassiviere.com/en/projects/oz-warner-japan/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexisvassiviere.com/projets/oz-warner-japan/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexisvassiviere.com/en/projects/oz-warner-japan/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexisvassiviere.com/projets/oz-warner-japan/" />
   </url>
   <url>
     <loc>https://alexisvassiviere.com/projets/altstadt-vienna/</loc>
