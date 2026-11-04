@@ -165,6 +165,7 @@
   --grid-cols-mobile:2; /* nb de colonnes de la grille d'accueil sur mobile ≤820px (fixe) */
   --grid-maxw:100%;   /* largeur max de la grille d'accueil (slider "Largeur") */
   --pd-grid-cols:3;   /* nb de colonnes de la grille d'une page projet (slider "Colonnes") */
+  --pd-grid-cols-mobile:2; /* nb de colonnes d'une page projet sur mobile ≤820px (fixe, audit 04/11/2026) */
   --pd-grid-maxw:100%;/* largeur max de la grille d'une page projet (slider "Largeur") */
   /* Police + position des titres de page (Projets / page détail / Contact),
      réglables en mode édition via le groupe "Titre" de la barre d'outils
@@ -632,6 +633,9 @@ body.editing .proj-card.sortable-chosen{cursor:grabbing}
   border-radius:6px;cursor:grab;color:var(--ink-soft);font-size:15px;line-height:1;
   user-select:none;transition:background .15s var(--ease),color .15s var(--ease);
 }
+/* Le symbole ⠿ est dessiné ici (::before) et non écrit dans le HTML : sinon
+   il fait partie du texte lu par Google et les robots IA (audit 04/11/2026). */
+.block-handle::before{content:"⠿"}
 .block-handle:hover{background:var(--line);color:var(--ink)}
 body.editing .block-handle{display:flex}
 body.editing .block-row.sortable-chosen .block-handle{cursor:grabbing}
@@ -809,7 +813,8 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
 /* ---------- RESPONSIVE ---------- */
 /* Le nombre de colonnes des grilles (accueil --grid-cols, détail projet
    --pd-grid-cols, galerie Projets #project-grid) reste volontairement le
-   même sur mobile que sur ordinateur, sauf l'accueil : 4 colonnes sur
+   même sur mobile que sur ordinateur, sauf l'accueil et les pages projet
+   (2 colonnes sur mobile depuis le 04/11/2026, voir plus bas) : 4 colonnes sur
    ordinateur (seed gridCols) mais 2 sur mobile (--grid-cols-mobile, voir
    ci-dessous) : 4 serait trop petit, et 2 (diviseur de 4) fait de chaque
    rangée d'ordinateur exactement deux rangées sur mobile, donc l'ordre
@@ -834,6 +839,11 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
   /* Accueil : nombre de colonnes fixe sur mobile, indépendant du slider
      "Colonnes" (qui ne règle que la version ordinateur). */
   .grid-home{grid-template-columns:repeat(var(--grid-cols-mobile), 1fr)}
+  /* Page projet : 2 colonnes fixes sur mobile (avant : les 3 ou 4 colonnes de
+     l'ordinateur, soit des vignettes de 72 px sur un téléphone). Le slider
+     "Colonnes" ne règle que la version ordinateur, comme pour l'accueil.
+     Doit rester aligné sur PD_MOBILE_COLS (script et generate-pages.js). */
+  .grid-pd{grid-template-columns:repeat(var(--pd-grid-cols-mobile), 1fr)}
   /* Page Contact sur mobile : texte compact pour que "Let's work together"
      soit visible sans scroller. */
   .contact-simple{padding:8px 0 32px;gap:8px}
@@ -947,7 +957,7 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
 
 
 
-    <div class="block-row" data-block="intro" style="margin-bottom: 32px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><div class="intro" data-key="contact.intro" style="font-family: 'Space Grotesk', sans-serif; font-style: normal; font-weight: 500;"><p>Je photographie depuis plus de quinze ans. La scène, le portrait éditorial, les campagnes de marque — des univers différents, une même exigence&nbsp;: l'image juste, celle qui reste.</p><p>Mon travail se situe à l'intersection du documentaire, de la mode et du commercial. Un parcours construit entre l'argentique et le numérique&nbsp;: le film m'a appris la patience et la précision — chaque déclenchement compte. Le numérique m'a donné la vitesse et la liberté. Aujourd'hui, je travaille avec les deux, selon ce que le projet demande.</p><p>En tant que directeur artistique, je ne me contente pas d'exécuter. Je conçois&nbsp;: le concept, la lumière, la direction, l'intention. C'est ce qui fait la différence entre une photo correcte et une image qui porte une identité.</p></div></div><div class="block-row" data-block="email" style="margin-top: 32px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><a href="mailto:contact@alexisvassiviere.com" class="contact-email-cta" id="contact-email"><span data-key="contact.email" style="font-family: &quot;Cormorant Garamond&quot;, serif; font-style: normal; font-weight: 500;">contact@alexisvassiviere.com</span></a></div><div class="block-row" data-block="title" style="margin-top: 32px; margin-bottom: 10px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><h1 data-i18n="contact.title" style="font-family: Jost, sans-serif; font-style: normal; font-weight: 500;">Travaillons ensemble</h1></div><div class="block-row" data-block="divider" style=""><span class="block-handle" title="Déplacer ce bloc">⠿</span><hr class="contact-divider"></div><div class="block-row" data-block="clients" style="margin-top: 40px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><div class="contact-clients">
+    <div class="block-row" data-block="intro" style="margin-bottom: 32px;"><span class="block-handle" title="Déplacer ce bloc" aria-hidden="true"></span><div class="intro" data-key="contact.intro" style="font-family: 'Space Grotesk', sans-serif; font-style: normal; font-weight: 500;"><p>Je photographie depuis plus de quinze ans. La scène, le portrait éditorial, les campagnes de marque — des univers différents, une même exigence&nbsp;: l'image juste, celle qui reste.</p><p>Mon travail se situe à l'intersection du documentaire, de la mode et du commercial. Un parcours construit entre l'argentique et le numérique&nbsp;: le film m'a appris la patience et la précision — chaque déclenchement compte. Le numérique m'a donné la vitesse et la liberté. Aujourd'hui, je travaille avec les deux, selon ce que le projet demande.</p><p>En tant que directeur artistique, je ne me contente pas d'exécuter. Je conçois&nbsp;: le concept, la lumière, la direction, l'intention. C'est ce qui fait la différence entre une photo correcte et une image qui porte une identité.</p></div></div><div class="block-row" data-block="email" style="margin-top: 32px;"><span class="block-handle" title="Déplacer ce bloc" aria-hidden="true"></span><a href="mailto:contact@alexisvassiviere.com" class="contact-email-cta" id="contact-email"><span data-key="contact.email" style="font-family: &quot;Cormorant Garamond&quot;, serif; font-style: normal; font-weight: 500;">contact@alexisvassiviere.com</span></a></div><div class="block-row" data-block="title" style="margin-top: 32px; margin-bottom: 10px;"><span class="block-handle" title="Déplacer ce bloc" aria-hidden="true"></span><h1 data-i18n="contact.title" style="font-family: Jost, sans-serif; font-style: normal; font-weight: 500;">Travaillons ensemble</h1></div><div class="block-row" data-block="divider" style=""><span class="block-handle" title="Déplacer ce bloc" aria-hidden="true"></span><hr class="contact-divider"></div><div class="block-row" data-block="clients" style="margin-top: 40px;"><span class="block-handle" title="Déplacer ce bloc" aria-hidden="true"></span><div class="contact-clients">
         <span data-i18n="hero.clientsLabel">Clients</span>
         <span id="contact-clients-line">Sony Music   ·   Burberry   ·   RTBF   ·   NRJ   ·   Nostalgie   ·   Elle Belgique   ·   Playtwo   ·   Les Ardentes   ·   HUG Production   ·   Profirst   ·   Warner Japan   ·   Spotify   ·   H&amp;M Home</span>
       </div></div></div>
@@ -962,7 +972,7 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
     <div class="project-head">
       
       
-    <div class="block-row" data-block="intro" style="margin-top: 4px; margin-bottom: 80px;"><span class="block-handle" title="Déplacer ce bloc">⠿</span><h1 class="intro" data-key="project.intro" style="font-family: 'Space Grotesk', sans-serif; font-style: normal; font-weight: 500;">Sélection de projets réalisés avec des marques, agences et artistes</h1></div></div>
+    <div class="block-row" data-block="intro" style="margin-top: 4px; margin-bottom: 80px;"><span class="block-handle" title="Déplacer ce bloc" aria-hidden="true"></span><h1 class="intro" data-key="project.intro" style="font-family: 'Space Grotesk', sans-serif; font-style: normal; font-weight: 500;">Sélection de projets réalisés avec des marques, agences et artistes</h1></div></div>
     <div class="grid" id="project-grid"></div>
   </main>
 </section>
@@ -972,11 +982,11 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
   <div class="project-detail">
     <main class="page">
       <div class="head">
-        <div class="block-row" data-block="back"><span class="block-handle" title="Déplacer ce bloc">⠿</span><a href="/projets/" data-nav="#/project" class="back" data-i18n="project.back">← Projets</a></div>
+        <div class="block-row" data-block="back"><span class="block-handle" title="Déplacer ce bloc" aria-hidden="true"></span><a href="/projets/" data-nav="#/project" class="back" data-i18n="project.back">← Projets</a></div>
         <!-- Titre et description sont propres à chaque projet (state.projects[i].title/.desc),
              éditables en FR/EN via data-project-field, voir commitText() dans le script. -->
-        <div class="block-row" data-block="title" style=""><span class="block-handle" title="Déplacer ce bloc">⠿</span><h1 id="pd-title" data-project-field="title" style=""></h1></div>
-        <div class="block-row" data-block="desc"><span class="block-handle" title="Déplacer ce bloc">⠿</span><p class="desc" id="pd-desc" data-project-field="desc" style=""></p></div>
+        <div class="block-row" data-block="title" style=""><span class="block-handle" title="Déplacer ce bloc" aria-hidden="true"></span><h1 id="pd-title" data-project-field="title" style=""></h1></div>
+        <div class="block-row" data-block="desc"><span class="block-handle" title="Déplacer ce bloc" aria-hidden="true"></span><p class="desc" id="pd-desc" data-project-field="desc" style=""></p></div>
       </div>
       <div class="grid grid-pd" id="pd-grid"></div>
       <!-- Fin de page : projet suivant (le projet d'après dans la galerie,
@@ -1274,6 +1284,20 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
     Array.from(holder.children).forEach(el => el.setAttribute('data-edit-ui', ''));
     while(holder.firstChild) tpl.parentNode.insertBefore(holder.firstChild, tpl);
   })();
+  // Vues non affichées d'une page générée (ex. Contact et Projets sur une
+  // page projet) : generate-pages.js les range dans des modèles script de
+  // type text/html marqués data-view-tpl (voir viewTemplate()) pour que leur texte
+  // (bio, clients, autres titres) ne se répète pas dans chacune des 26 pages
+  // lues par Google et les robots IA. On les remet ici à leur place, avant
+  // tout le reste : le site fonctionne ensuite exactement comme avant
+  // (navigation entre les vues sans rechargement, mode édition).
+  (function installViews(){
+    document.querySelectorAll('script[data-view-tpl]').forEach(tpl => {
+      const holder = document.createElement('template');
+      holder.innerHTML = tpl.textContent;
+      tpl.replaceWith(holder.content);
+    });
+  })();
   const $$ = (s, p=document) => Array.from(p.querySelectorAll(s));
   const STORAGE_KEY = "av.portfolio.v1";
   const HISTORY_LIMIT = 20;
@@ -1405,6 +1429,8 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
   // Colonnes de la grille d'accueil sur mobile — doit rester aligné sur
   // --grid-cols-mobile (CSS) et sur imagesizes des préchargements du <head>.
   const HOME_MOBILE_COLS = 2;
+  // Colonnes d'une page projet sur mobile — aligné sur --pd-grid-cols-mobile.
+  const PD_MOBILE_COLS = 2;
   function setImgSrc(imgEl, src, sizes){
     if(isIdbRef(src)){
       imgEl.removeAttribute('srcset');
@@ -2274,7 +2300,7 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
       lightboxList: proj.photos,
       onChange: () => { renderProjectGrid(proj); renderProjectIndex(); },
       eager: idx < 6, // premières photos de la série visibles immédiatement
-      sizes: gridSizes(pdColsFor(proj), state.pdGridWidth)
+      sizes: gridSizes(pdColsFor(proj), state.pdGridWidth, PD_MOBILE_COLS)
     });
   }
   // Vignette "+" en mode édition : ajoute des photos à la série courante
@@ -3338,7 +3364,7 @@ body.editing [contenteditable="true"]:focus{box-shadow:inset 0 0 0 1px var(--ink
     queueWarmup((state.projects || []).map(proj => (proj.photos || [])[0]), PROJECT_COVER_SIZES);
   }
   function warmupProject(proj){
-    queueWarmup(proj.photos, gridSizes(pdColsFor(proj), state.pdGridWidth));
+    queueWarmup(proj.photos, gridSizes(pdColsFor(proj), state.pdGridWidth, PD_MOBILE_COLS));
   }
   if(document.readyState === 'complete') setTimeout(warmupImages, 600);
   else window.addEventListener('load', () => setTimeout(warmupImages, 600), {once:true});

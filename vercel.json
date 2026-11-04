@@ -20,6 +20,8 @@
     }
   ],
   "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/:path+/index.html", "destination": "/:path+/", "permanent": true },
     { "source": "/projets/projet-mqdx1i0c/", "destination": "/projets/profirst-palerme-gala/", "permanent": true },
     { "source": "/en/projects/projet-mqdx1i0c/", "destination": "/en/projects/profirst-palerme-gala/", "permanent": true },
     { "source": "/projets/projet-mqdvqqpk/", "destination": "/projets/gazo-bsb/", "permanent": true },

@@ -46,7 +46,13 @@
  *  - écrit aussi les photos de la grille d'accueil dans le HTML (/en/, et
  *    "/" = index.html pendant le build Vercel seulement, voir
  *    PRERENDER_ROOT en fin de fichier) ;
- *  - génère sitemap.xml (pages + hreflang + photos de chaque page).
+ *  - génère sitemap.xml (pages + hreflang + photos de chaque page) ;
+ *  - (audit du 04/11/2026, 18 h) range les vues non affichées de chaque page
+ *    dans des modèles <script type="text/html" data-view-tpl> (remises en
+ *    place par installViews() dans index.html), ne précharge les photos de
+ *    l'accueil que sur l'accueil, passe les pages projet en 2 colonnes sur
+ *    mobile (tailles d'images), ajoute fil d'Ariane + ImageObject au JSON-LD
+ *    et génère llms.txt.
  *
  * Usage : node generate-pages.js          (exécuté via le buildCommand Vercel)
  *         node generate-pages.js --root   (réécrit aussi index.html : à ne
@@ -64,7 +70,11 @@ const SITE = 'https://www.alexisvassiviere.com';
 // ---------------------------------------------------------------------
 // Lecture du fichier source + des données seed (texts.fr/en, projects)
 // ---------------------------------------------------------------------
-const src = fs.readFileSync(SRC_PATH, 'utf8');
+// Une source déjà pré-rendue (ex. "/" récupérée en ligne par l'export du mode
+// édition) peut contenir des vues rangées dans des modèles (voir
+// viewTemplate()) : elles sont remises en place avant de générer, sinon elles
+// seraient emballées deux fois.
+const src = unwrapViewTemplates(fs.readFileSync(SRC_PATH, 'utf8'));
 
 const seedMatch = src.match(/<script id="seed-data" type="application\/json">([\s\S]*?)<\/script>/);
 if (!seedMatch) throw new Error('seed-data introuvable dans index.html');
@@ -181,7 +191,13 @@ function gridSizes(cols, widthPct, mobileCols) {
   const w = Math.min(100, Math.max(30, parseInt(widthPct, 10) || 100));
   return `(max-width:820px) ${Math.round(100 / m)}vw, ${Math.round(w / c)}vw`;
 }
-const PD_GRID_SIZES = gridSizes(SEED.pdGridCols, SEED.pdGridWidth);
+// Page projet : 2 colonnes sur mobile — même valeur que PD_MOBILE_COLS dans
+// index.html (et --pd-grid-cols-mobile en CSS).
+const PD_MOBILE_COLS = 2;
+const PD_GRID_SIZES = gridSizes(SEED.pdGridCols, SEED.pdGridWidth, PD_MOBILE_COLS);
+// Premières photos d'une page projet chargées tout de suite (comme
+// buildProjectPhotoTile() : eager: idx < 6) ; les suivantes en lazy.
+const PD_EAGER = 6;
 // Grille d'accueil : 2 colonnes sur mobile — même valeur que
 // HOME_MOBILE_COLS dans index.html (et --grid-cols-mobile en CSS).
 const HOME_MOBILE_COLS = 2;
@@ -361,6 +377,27 @@ function extractById(html, tag, id) {
   return { start, end, text: html.slice(start, end) };
 }
 
+// Vue non affichée d'une page générée : rangée dans un modèle
+// <script type="text/html" data-view-tpl="<id>">, remis en place au chargement
+// par installViews() dans index.html (même principe que #edit-ui-tpl). Son
+// texte (bio, clients, titres des autres vues) ne fait ainsi plus partie de la
+// page pour Google et les robots IA, qui ne lisaient sinon presque que ça.
+// Les commentaires HTML sont retirés (inutiles, et "<!--" dans un <script>
+// change la façon dont le navigateur cherche la fin du bloc).
+function viewTemplate(id, fragHtml) {
+  const body = fragHtml.replace(/<!--[\s\S]*?-->/g, '');
+  if (/<\/?script/i.test(body)) {
+    throw new Error(`La vue #${id} contient une balise <script> : impossible de la ranger dans un modèle`);
+  }
+  return `<script type="text/html" data-view-tpl="${id}">${body}</script>`;
+}
+// Motif strict (nom de vue + <section> complète juste à l'intérieur) : un
+// simple texte qui ressemblerait à la balise (commentaire du script…) ne doit
+// jamais être pris pour un modèle.
+function unwrapViewTemplates(html) {
+  return html.replace(/<script type="text\/html" data-view-tpl="(view-[a-z-]+)">(<section id="\1"[\s\S]*?<\/section>)<\/script>/g, '$2');
+}
+
 // Traduit dans un fragment cheerio les éléments data-i18n / data-i18n-html
 // / data-key vers texts[lang][key]. "contact.email" est volontairement
 // exclu (valeur conservée telle quelle, identique FR/EN).
@@ -401,8 +438,42 @@ function transformJsonLd(html, page, SEED) {
     about: { '@id': `${SITE}/#person` },
   };
   if (page.kind === 'detail') {
+    // Photos de la série avec leur auteur et leurs crédits (Google Images
+    // affiche le créateur et la mention de crédit). Pas de licence déclarée :
+    // à décider par Alexis (voir HANDOFF, crédits du 04/11/2026).
     const proj = SEED.projects[page.projectIdx];
-    node.image = (proj.photos || []).map(p => `${SITE}${absSrc(p.src)}`);
+    const photos = (proj.photos || []).filter(p => p && p.src && !/^(data:|idb:)/.test(p.src));
+    node.image = photos.map((p, i) => ({
+      '@type': 'ImageObject',
+      contentUrl: SITE + encodeURI(absSrc(p.src)),
+      caption: projectPhotoAlt(p, page.lang, proj, i, photos.length),
+      creator: { '@id': `${SITE}/#person` },
+      creditText: 'Alexis Vassivière',
+      copyrightNotice: '© Alexis Vassivière',
+    }));
+  }
+  // Fil d'Ariane (Portfolio › Projets › <projet>, Portfolio › Contact) :
+  // Google peut l'afficher à la place de l'adresse dans ses résultats.
+  {
+    const en = page.lang === 'en';
+    const T = SEED.texts[page.lang] || {};
+    const crumbs = [{ name: T['nav.work'] || 'Portfolio', item: `${SITE}${en ? '/en/' : '/'}` }];
+    if (page.section === 'project') {
+      crumbs.push({ name: T['nav.project'] || (en ? 'Projects' : 'Projets'), item: `${SITE}${en ? '/en/projects/' : '/projets/'}` });
+      if (page.kind === 'detail') {
+        crumbs.push({ name: flatProjectName(SEED.projects[page.projectIdx], page.lang), item: page.canonical });
+      }
+    } else if (page.section === 'contact') {
+      crumbs.push({ name: T['nav.contact'] || 'Contact', item: page.canonical });
+    }
+    if (crumbs.length > 1) {
+      node.breadcrumb = { '@id': `${page.canonical}#breadcrumb` };
+      data['@graph'].push({
+        '@type': 'BreadcrumbList',
+        '@id': `${page.canonical}#breadcrumb`,
+        itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.item })),
+      });
+    }
   }
   // Le noeud WebPage d'index.html décrit la page d'accueil "/" : on le
   // remplace (au lieu de le garder à côté), sinon chaque page générée
@@ -464,6 +535,13 @@ function transformHead(html, page, SEED) {
       html = html.replace(/<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${coverUrl}">`);
       html = html.replace(/\n<meta property="og:image:(width|height)" content="[^"]*">/g, '');
     }
+  }
+
+  // Les 3 photos préchargées dans le <head> d'index.html sont celles de la
+  // grille d'accueil : inutiles ailleurs (elles retardaient les photos de la
+  // page projet ou de Contact). Retirées de toutes les pages sauf l'accueil.
+  if (page.section !== 'home') {
+    html = html.replace(/<link rel="preload" as="image" href="\/images\/ACCUEIL\/[^>]*>\n?/g, '');
   }
 
   html = transformJsonLd(html, page, SEED);
@@ -547,7 +625,7 @@ function transformBody(html, page, SEED) {
         const $grid = $('#pd-grid');
         $grid.empty();
         const photos = proj.photos || [];
-        const sizes = proj.cols != null ? gridSizes(proj.cols, SEED.pdGridWidth) : PD_GRID_SIZES;
+        const sizes = proj.cols != null ? gridSizes(proj.cols, SEED.pdGridWidth, PD_MOBILE_COLS) : PD_GRID_SIZES;
         photos.forEach((p, i) => {
           const alt = escapeHtml(projectPhotoAlt(p, page.lang, proj, i, photos.length));
           const src = escapeHtml(absSrc(p.src));
@@ -555,7 +633,8 @@ function transformBody(html, page, SEED) {
           const resp = srcset
             ? ` srcset="${escapeHtml(srcset)}" sizes="${escapeHtml(sizes)}"`
             : '';
-          $grid.append(`<div class="tile"><img alt="${alt}" loading="lazy" decoding="async"${resp} src="${src}"></div>`);
+          const load = i < PD_EAGER ? 'eager' : 'lazy';
+          $grid.append(`<div class="tile"><img alt="${alt}" loading="${load}" decoding="async"${resp} src="${src}"></div>`);
         });
       }
     } else {
@@ -564,7 +643,8 @@ function transformBody(html, page, SEED) {
       // la source ne doit pas faire télécharger ses photos sur les autres pages).
       if (key === 'home') $('#grid').empty();
     }
-    const newFrag = $.root().html();
+    let newFrag = $.root().html();
+    if (key !== activeKey) newFrag = viewTemplate(id, newFrag);
     html = html.slice(0, frag.start) + newFrag + html.slice(frag.end);
   }
 
@@ -663,6 +743,60 @@ ${body}
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), xml);
   const nImgs = entries.reduce((n, e) => n + new Set(e.images).size, 0);
   console.log(`Généré sitemap.xml (${entries.length} URL, ${nImgs} entrées image)`);
+}
+
+// ---------------------------------------------------------------------
+// llms.txt (généré à chaque build depuis le seed) : résumé du site pour les
+// assistants IA (ChatGPT, Claude, Perplexity…), format https://llmstxt.org —
+// qui est Alexis, ses clients, ses pages et ses projets, en FR et en EN.
+// ---------------------------------------------------------------------
+{
+  const plain = s => String(s || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
+  const fr = SEED.texts.fr || {};
+  const en = SEED.texts.en || {};
+  const clients = (SEED.clients || []).map(plain).join(', ');
+  const descOf = (proj, lang) => plain(proj.desc && (proj.desc[lang] || proj.desc.fr)).replace(/\.$/, '');
+  const projLines = lang => (SEED.projects || []).map(proj => {
+    const url = `${SITE}${lang === 'en' ? '/en/projects/' : '/projets/'}${proj.id}/`;
+    const d = descOf(proj, lang);
+    return `- [${flatProjectName(proj, lang)}](${url})${d ? (lang === 'en' ? ': ' : ' : ') + d + '.' : ''}`;
+  }).join('\n');
+  const txt = `# Alexis Vassivière
+
+> ${plain(fr['hero.lede'])} Photographe et directeur artistique : concerts et tournées, portraits d'artistes, événementiel et corporate, campagnes de marque. Clients : ${clients}.
+
+Site bilingue (français / anglais). Contact : ${SEED.email}. Toutes les photos : © Alexis Vassivière, tous droits réservés.
+
+## Pages
+
+- [Portfolio](${SITE}/) : sélection de photos (concert, portrait d'artiste, événementiel, sport, Japon)
+- [Projets](${SITE}/projets/) : ${plain(fr['project.intro'])}
+- [Contact](${SITE}/contact/) : présentation, e-mail et liste des clients
+
+## Projets
+
+${projLines('fr')}
+
+## English
+
+> ${plain(en['hero.lede'])} Photographer and art director: concerts and tours, artist portraits, events and corporate, brand campaigns.
+
+- [Portfolio](${SITE}/en/): selected photographs
+- [Projects](${SITE}/en/projects/): ${plain(en['project.intro'])}
+- [Contact](${SITE}/en/contact/): about, e-mail and client list
+
+### Projects
+
+${projLines('en')}
+
+## Optional
+
+- [Instagram](${SEED.ig})
+- [LinkedIn](${SEED.li})
+`;
+  fs.writeFileSync(path.join(ROOT, 'llms.txt'), txt);
+  console.log(`Généré llms.txt (${txt.length} caractères)`);
 }
 
 console.log('Terminé.');
