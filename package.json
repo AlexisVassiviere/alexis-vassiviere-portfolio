@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "description": "Site portfolio d'Alexis Vassivière (page unique HTML/CSS/JS + pages SEO générées).",
   "scripts": {
-    "build": "node generate-pages.js",
-    "webp": "node generate-webp.js"
+    "build": "node generate-pages.js && node image-credits.js",
+    "webp": "node generate-webp.js",
+    "credits": "node image-credits.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0"

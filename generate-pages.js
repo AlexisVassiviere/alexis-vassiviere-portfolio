@@ -42,7 +42,15 @@
  * hydratation — ce script ne fait que pré-rendre le même résultat côté
  * serveur/build.
  *
- * Usage : node generate-pages.js   (exécuté via le buildCommand Vercel)
+ * Depuis le 04/11/2026, le script :
+ *  - écrit aussi les photos de la grille d'accueil dans le HTML (/en/, et
+ *    "/" = index.html pendant le build Vercel seulement, voir
+ *    PRERENDER_ROOT en fin de fichier) ;
+ *  - génère sitemap.xml (pages + hreflang + photos de chaque page).
+ *
+ * Usage : node generate-pages.js          (exécuté via le buildCommand Vercel)
+ *         node generate-pages.js --root   (réécrit aussi index.html : à ne
+ *                                          lancer que dans une COPIE du dossier)
  */
 
 const fs = require('fs');
@@ -134,8 +142,8 @@ const PAGES = [
 // Index (dans SEED.projects) des projets ayant chacun leur propre page
 // détail. Tous les projets du seed ont désormais un vrai titre FR/EN
 // (les placeholders "Nouveau projet"/"New project" ont été corrigés),
-// donc tous sont inclus automatiquement. Penser à ajouter les URL de
-// tout nouveau projet dans sitemap.xml.
+// donc tous sont inclus automatiquement. Depuis le 04/11/2026 le sitemap
+// est généré par ce script (fin de fichier) : rien à ajouter à la main.
 const DETAIL_PROJECT_INDEXES = SEED.projects.map((_, i) => i);
 
 // Chemin absolu d'une photo : le seed stocke des chemins relatifs
@@ -166,12 +174,53 @@ function webpSrcset(src) {
 // Attribut sizes ≈ largeur d'une colonne de grille (même calcul que
 // gridSizes() dans index.html : pleine largeur sur mobile ≤820px, sinon
 // largeur de grille réglée par Alexis, divisée par le nombre de colonnes).
-function gridSizes(cols, widthPct) {
+// mobileCols : nb de colonnes sur mobile s'il diffère (accueil).
+function gridSizes(cols, widthPct, mobileCols) {
   const c = Math.max(1, parseInt(cols, 10) || 3);
+  const m = Math.max(1, parseInt(mobileCols, 10) || c);
   const w = Math.min(100, Math.max(30, parseInt(widthPct, 10) || 100));
-  return `(max-width:820px) ${Math.round(100 / c)}vw, ${Math.round(w / c)}vw`;
+  return `(max-width:820px) ${Math.round(100 / m)}vw, ${Math.round(w / c)}vw`;
 }
 const PD_GRID_SIZES = gridSizes(SEED.pdGridCols, SEED.pdGridWidth);
+// Grille d'accueil : 2 colonnes sur mobile — même valeur que
+// HOME_MOBILE_COLS dans index.html (et --grid-cols-mobile en CSS).
+const HOME_MOBILE_COLS = 2;
+const HOME_GRID_SIZES = gridSizes(SEED.gridCols, SEED.gridWidth, HOME_MOBILE_COLS);
+// Nombre de photos de l'accueil chargées tout de suite dans le HTML statique
+// (les 3 préchargées dans le <head>) ; les suivantes en lazy. Le JS
+// reconstruit de toute façon la grille au chargement (renderGrid()).
+const HOME_EAGER = 3;
+
+// Texte alternatif d'une photo (bilingue {fr,en} ou chaîne simple), dans la
+// langue de la page — même logique que photoAlt() dans index.html.
+function photoAltFor(photo, lang, fallback) {
+  const a = photo && photo.alt;
+  if (a && typeof a === 'string' && a.trim()) return a;
+  if (a && typeof a === 'object') {
+    const v = a[lang] || a.fr || a.en;
+    if (v && v.trim()) return v;
+  }
+  return fallback || '';
+}
+
+// Photos de la grille d'accueil, écrites dans le HTML (avant le 04/11/2026,
+// #grid était vide et rempli seulement par le JS : les robots IA et en
+// partie Bing ne voyaient aucune photo ni aucun texte alt sur l'accueil).
+// Ordre = ordre ordinateur (state.photos) ; sur mobile le JS réordonne
+// (homeMobileOrder()). Même balisage que buildPhotoTile(), sans les outils
+// d'édition (ajoutés par le JS).
+function homeGridHtml(lang) {
+  const fallback = lang === 'en' ? 'Photo by Alexis Vassivière' : 'Photo d\'Alexis Vassivière';
+  return (SEED.photos || [])
+    .filter(p => p && p.src && !/^(data:|idb:)/.test(p.src))
+    .map((p, i) => {
+      const alt = escapeHtml(photoAltFor(p, lang, fallback));
+      const srcset = webpSrcset(p.src);
+      const resp = srcset ? ` srcset="${escapeHtml(srcset)}" sizes="${escapeHtml(HOME_GRID_SIZES)}"` : '';
+      const load = i < HOME_EAGER ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
+      return `<div class="tile" data-idx="${i}"><img alt="${alt}" ${load} decoding="async"${resp} src="${escapeHtml(absSrc(p.src))}" class="loaded"></div>`;
+    }).join('');
+}
 // Galerie Projets : 4 colonnes sur 80% de largeur desktop, 2 sur mobile
 // (CSS #project-grid).
 const PROJECT_GRID_SIZES = '(max-width:820px) 50vw, 20vw';
@@ -460,7 +509,9 @@ function transformBody(html, page, SEED) {
     if (key === activeKey) {
       $el.removeAttr('hidden');
       translateFragment($, page.lang, SEED);
-      if (key === 'project') {
+      if (key === 'home') {
+        $('#grid').empty().append(homeGridHtml(page.lang));
+      } else if (key === 'project') {
         // Galerie Projets reconstruite depuis le seed (comme #pd-grid) : le
         // #project-grid statique d'index.html est un instantané du DOM pris
         // à l'export CMS, qui ne suit pas l'ajout ou le réordonnancement
@@ -509,6 +560,9 @@ function transformBody(html, page, SEED) {
       }
     } else {
       $el.attr('hidden', '');
+      // Section masquée : grille vidée (une grille d'accueil déjà écrite dans
+      // la source ne doit pas faire télécharger ses photos sur les autres pages).
+      if (key === 'home') $('#grid').empty();
     }
     const newFrag = $.root().html();
     html = html.slice(0, frag.start) + newFrag + html.slice(frag.end);
@@ -530,6 +584,85 @@ for (const page of PAGES) {
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, html);
   console.log(`Généré ${page.outPath} (${html.length} octets)`);
+}
+
+// ---------------------------------------------------------------------
+// Accueil FR "/" (= index.html) avec ses photos écrites dans le HTML
+// ---------------------------------------------------------------------
+// index.html est la source : on ne la réécrit QUE pendant le build Vercel
+// (variable VERCEL, posée par Vercel dans son environnement de build, sur
+// une copie jetable du dépôt) ou si on le demande (node generate-pages.js
+// --root, pour tester dans une copie du dossier). En local, `npm run build`
+// laisse index.html intact. <head> inchangé (c'est déjà celui de l'accueil
+// FR) ; seul le corps est pré-rendu, comme pour /en/.
+const PRERENDER_ROOT = !!process.env.VERCEL || process.argv.includes('--root');
+const ROOT_PAGE = { outPath: 'index.html', lang: 'fr', section: 'home', canonical: `${SITE}/` };
+if (PRERENDER_ROOT) {
+  let html = transformBody(src, ROOT_PAGE, SEED);
+  html = transformNavLinks(html, ROOT_PAGE);
+  fs.writeFileSync(SRC_PATH, html);
+  console.log(`Pré-rendu index.html (accueil FR, ${html.length} octets)`);
+}
+
+// ---------------------------------------------------------------------
+// sitemap.xml (généré à chaque build depuis le seed — ne plus l'éditer à
+// la main) : toutes les pages + leurs variantes de langue (hreflang) + les
+// photos affichées sur chaque page (<image:image>, pour Google Images).
+// lastmod = date du seedStamp (change à chaque modification du contenu).
+// ---------------------------------------------------------------------
+{
+  const stamp = String(SEED.seedStamp || '').match(/^\d{4}-\d{2}-\d{2}/);
+  const lastmod = stamp ? stamp[0] : new Date().toISOString().slice(0, 10);
+  const xmlEsc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const imgUrl = src => SITE + encodeURI(absSrc(src));
+  const usable = list => (list || []).filter(p => p && p.src && !/^(data:|idb:)/.test(p.src));
+  const homeImgs = usable(SEED.photos).map(p => imgUrl(p.src));
+  const coverImgs = usable((SEED.projects || []).map(pr => (pr.photos || [])[0]));
+  const entries = [];
+  const add = (fr, en, changefreq, priority, images) => {
+    for (const loc of [fr, en]) {
+      entries.push({ loc, fr, en, changefreq, priority, images });
+    }
+  };
+  add(`${SITE}/`, `${SITE}/en/`, 'monthly', '1.0', homeImgs);
+  add(`${SITE}/projets/`, `${SITE}/en/projects/`, 'monthly', '0.9', coverImgs.map(p => imgUrl(p.src)));
+  for (const idx of DETAIL_PROJECT_INDEXES) {
+    const proj = SEED.projects[idx];
+    add(`${SITE}/projets/${proj.id}/`, `${SITE}/en/projects/${proj.id}/`, 'yearly', '0.7',
+      usable(proj.photos).map(p => imgUrl(p.src)));
+  }
+  add(`${SITE}/contact/`, `${SITE}/en/contact/`, 'yearly', '0.5', []);
+
+  const body = entries.map(e => [
+    '  <url>',
+    `    <loc>${xmlEsc(e.loc)}</loc>`,
+    `    <lastmod>${lastmod}</lastmod>`,
+    `    <changefreq>${e.changefreq}</changefreq>`,
+    `    <priority>${e.priority}</priority>`,
+    `    <xhtml:link rel="alternate" hreflang="fr" href="${xmlEsc(e.fr)}" />`,
+    `    <xhtml:link rel="alternate" hreflang="en" href="${xmlEsc(e.en)}" />`,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${xmlEsc(e.fr)}" />`,
+    ...[...new Set(e.images)].map(u => `    <image:image><image:loc>${xmlEsc(u)}</image:loc></image:image>`),
+    '  </url>',
+  ].join('\n')).join('\n');
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap — www.alexisvassiviere.com
+  GÉNÉRÉ AUTOMATIQUEMENT par generate-pages.js à chaque build (npm run build,
+  et sur Vercel à chaque déploiement) à partir du seed d'index.html : ne pas
+  l'éditer à la main, les modifications seraient écrasées. Un nouveau projet
+  du seed y apparaît tout seul (FR + EN), avec ses photos.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${body}
+</urlset>
+`;
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), xml);
+  const nImgs = entries.reduce((n, e) => n + new Set(e.images).size, 0);
+  console.log(`Généré sitemap.xml (${entries.length} URL, ${nImgs} entrées image)`);
 }
 
 console.log('Terminé.');

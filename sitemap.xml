@@ -1,255 +1,485 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Sitemap — alexisvassiviere.com
-
-  Le site est généré à partir d'une page unique (index.html, SPA
-  HTML/CSS/JS) mais expose désormais des URL distinctes pré-rendues
-  pour chaque page/langue (voir generate-pages.js) :
-    - /              (accueil, FR)
-    - /en/           (accueil, EN)
-    - /projets/      (projets, FR)
-    - /en/projects/  (projets, EN)
-    - /contact/      (contact, FR)
-    - /en/contact/   (contact, EN)
-
-  ...ainsi que des pages détail par projet (Phase 2) :
-    - /projets/<id>/          (détail projet, FR)
-    - /en/projects/<id>/      (détail projet, EN)
-  Tous les projets du seed ont leur page détail : oz-warner-japan, altstadt-vienna,
-  hm-home, profirst-palerme-gala, lena-situations, patrick-habirora, gazo-bsb, oxlade-sony-music, spotify-daniel-ek,
-  camille-yembe. L'ancien projet projet-mqdx1i0c (Profirst) a été
-  retiré le 28/10/2026 et redirigé vers profirst-palerme-gala (vercel.json). Penser à ajouter ici les URL de tout nouveau projet ajouté
-  à DETAIL_PROJECT_INDEXES dans generate-pages.js.
-
-  Chaque URL annonce ses variantes linguistiques via
-  <xhtml:link rel="alternate" hreflang="...">, en cohérence avec les
-  balises <link rel="alternate" hreflang="..."> du <head> de chaque
-  page (voir generate-pages.js).
-
-  À mettre à jour : la date <lastmod> à chaque mise à jour importante
-  du contenu (nouvelles photos, nouveaux projets, textes...).
+  Sitemap — www.alexisvassiviere.com
+  GÉNÉRÉ AUTOMATIQUEMENT par generate-pages.js à chaque build (npm run build,
+  et sur Vercel à chaque déploiement) à partir du seed d'index.html : ne pas
+  l'éditer à la main, les modifications seraient écrasées. Un nouveau projet
+  du seed y apparaît tout seul (FR + EN), avec ses photos.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.alexisvassiviere.com/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/07-live-salle-rouge.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/42-live-scene-cuir-noir.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/09-live-pyro-scene.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/35-live-capuche-micro.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/36-portrait-oz-boiseries.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/06-portrait-dreadlocks.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/04-portrait-lunettes-blanches.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/37-portrait-veste-cuir-argentique.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/38-evenement-salle-palais-palerme.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/40-evenement-hm-home-escalier.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/39-interieur-bureau-hotel.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/41-evenement-bibliotheque-palerme.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/43-sport-cage-combat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/01-zidane-match.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/03-grand-place-event.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/34-portrait-chapeau-salle-vide.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/44-japon-izakaya-lanterne.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/45-japon-neon-shinjuku.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/47-japon-kanazawa-navi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/46-japon-restaurant-auvent.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/31-portrait-micro-dreadlocks.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/32-live-tenue-jaune.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/33-live-silhouette-ailes.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/05-portrait-fond-brique.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/08-live-fumee-bleue.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/10-portrait-duo-rouge.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/11-portrait-cuir-sombre.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/12-portrait-duo-blanc.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/13-portrait-jersey.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/14-portrait-noir-et-blanc.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/15-portrait-veste-rouille.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/en/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/07-live-salle-rouge.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/42-live-scene-cuir-noir.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/09-live-pyro-scene.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/35-live-capuche-micro.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/36-portrait-oz-boiseries.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/06-portrait-dreadlocks.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/04-portrait-lunettes-blanches.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/37-portrait-veste-cuir-argentique.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/38-evenement-salle-palais-palerme.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/40-evenement-hm-home-escalier.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/39-interieur-bureau-hotel.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/41-evenement-bibliotheque-palerme.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/43-sport-cage-combat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/01-zidane-match.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/03-grand-place-event.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/34-portrait-chapeau-salle-vide.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/44-japon-izakaya-lanterne.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/45-japon-neon-shinjuku.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/47-japon-kanazawa-navi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/46-japon-restaurant-auvent.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/31-portrait-micro-dreadlocks.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/32-live-tenue-jaune.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/33-live-silhouette-ailes.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/05-portrait-fond-brique.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/08-live-fumee-bleue.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/10-portrait-duo-rouge.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/11-portrait-cuir-sombre.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/12-portrait-duo-blanc.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/13-portrait-jersey.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/14-portrait-noir-et-blanc.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/15-portrait-veste-rouille.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/projets/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-002.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/en/projects/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-002.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/projets/oz-warner-japan/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/oz-warner-japan/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/oz-warner-japan/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/oz-warner-japan/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-006.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/en/projects/oz-warner-japan/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/oz-warner-japan/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/oz-warner-japan/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/oz-warner-japan/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/projets/altstadt-vienna/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/altstadt-vienna/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/altstadt-vienna/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/altstadt-vienna/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/en/projects/altstadt-vienna/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/altstadt-vienna/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/altstadt-vienna/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/altstadt-vienna/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/projets/hm-home/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/hm-home/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/hm-home/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/hm-home/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/en/projects/hm-home/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/hm-home/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/hm-home/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/hm-home/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/projets/profirst-palerme-gala/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/profirst-palerme-gala/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/profirst-palerme-gala/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/profirst-palerme-gala/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/en/projects/profirst-palerme-gala/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/profirst-palerme-gala/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/profirst-palerme-gala/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/profirst-palerme-gala/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/projets/lena-situations/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/lena-situations/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/lena-situations/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/lena-situations/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/en/projects/lena-situations/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/lena-situations/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/lena-situations/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/lena-situations/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/projets/patrick-habirora/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/patrick-habirora/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/patrick-habirora/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/patrick-habirora/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/en/projects/patrick-habirora/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/patrick-habirora/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/patrick-habirora/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/patrick-habirora/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/projets/gazo-bsb/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/gazo-bsb/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/gazo-bsb/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/gazo-bsb/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/en/projects/gazo-bsb/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/gazo-bsb/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/gazo-bsb/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/gazo-bsb/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/projets/oxlade-sony-music/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/oxlade-sony-music/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/oxlade-sony-music/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/oxlade-sony-music/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/en/projects/oxlade-sony-music/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/oxlade-sony-music/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/oxlade-sony-music/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/oxlade-sony-music/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/projets/spotify-daniel-ek/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/spotify-daniel-ek/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/spotify-daniel-ek/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/spotify-daniel-ek/" />
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/en/projects/spotify-daniel-ek/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/spotify-daniel-ek/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/spotify-daniel-ek/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/spotify-daniel-ek/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oz-warner-japan-006.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/projets/camille-yembe/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/camille-yembe/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/camille-yembe/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/camille-yembe/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-006.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/en/projects/camille-yembe/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/camille-yembe/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/camille-yembe/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/camille-yembe/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/camille-yembe-006.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/projets/gazo-bsb/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/gazo-bsb/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/gazo-bsb/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/gazo-bsb/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-010.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/en/projects/gazo-bsb/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/gazo-bsb/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/gazo-bsb/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/gazo-bsb/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/gazo-bsb-010.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/projets/patrick-habirora/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/patrick-habirora/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/patrick-habirora/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/patrick-habirora/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-005.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/en/projects/patrick-habirora/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/patrick-habirora/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/patrick-habirora/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/patrick-habirora/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-005.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/projets/profirst-palerme-gala/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/profirst-palerme-gala/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/profirst-palerme-gala/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/profirst-palerme-gala/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-009.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/en/projects/profirst-palerme-gala/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/profirst-palerme-gala/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/profirst-palerme-gala/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/profirst-palerme-gala/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-009.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/projets/altstadt-vienna/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/altstadt-vienna/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/altstadt-vienna/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/altstadt-vienna/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-011.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/en/projects/altstadt-vienna/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/altstadt-vienna/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/altstadt-vienna/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/altstadt-vienna/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-011.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/projets/hm-home/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/hm-home/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/hm-home/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/hm-home/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-010.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-011.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-012.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/en/projects/hm-home/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/hm-home/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/hm-home/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/hm-home/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-010.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-011.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-012.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/projets/spotify-daniel-ek/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/spotify-daniel-ek/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/spotify-daniel-ek/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/spotify-daniel-ek/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-010.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-011.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-012.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/en/projects/spotify-daniel-ek/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/spotify-daniel-ek/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/spotify-daniel-ek/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/spotify-daniel-ek/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-010.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-011.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-012.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/projets/oxlade-sony-music/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/oxlade-sony-music/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/oxlade-sony-music/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/oxlade-sony-music/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-007.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/en/projects/oxlade-sony-music/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/oxlade-sony-music/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/oxlade-sony-music/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/oxlade-sony-music/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-007.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/projets/lena-situations/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/lena-situations/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/lena-situations/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/lena-situations/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-012.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-011.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/en/projects/lena-situations/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/lena-situations/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/lena-situations/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/lena-situations/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-012.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-011.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/contact/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/contact/" />
@@ -258,7 +488,7 @@
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/en/contact/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/contact/" />
