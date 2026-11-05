@@ -270,6 +270,14 @@ function flatProjectName(proj, lang) {
   return name.replace(/\s*\n\s*/g, ' ');
 }
 
+// Mention propre à la page du projet (proj.credit, ex. « pour HUG
+// Production ») : à la suite du h1 et dans la meta description, mais pas dans
+// la galerie Projets ni dans <title> — même règle que projectCredit() dans
+// index.html. Les espaces insécables gardent la mention d'un bloc à l'affichage.
+function projectCredit(proj, lang) {
+  return (proj.credit && (proj.credit[lang] || proj.credit.fr)) || '';
+}
+
 // Titre <title> / og:title / twitter:title d'une page détail projet.
 function projectPageTitle(proj, lang) {
   const name = flatProjectName(proj, lang);
@@ -282,7 +290,8 @@ function projectPageTitle(proj, lang) {
 // (proj.desc, sur une ligne) + signature — une description différente par
 // page. Sans description, phrase générique construite sur le seul titre.
 function projectPageDescription(proj, lang) {
-  const name = flatProjectName(proj, lang);
+  const credit = projectCredit(proj, lang).replace(/\u00a0/g, ' ');
+  const name = flatProjectName(proj, lang) + (credit ? ' ' + credit : '');
   const desc = ((proj.desc && (proj.desc[lang] || proj.desc.fr)) || '')
     .replace(/\s*\n\s*/g, ' ').trim().replace(/\.$/, '');
   if (desc) {
@@ -616,6 +625,8 @@ function transformBody(html, page, SEED) {
         const proj = SEED.projects[page.projectIdx];
         $el.attr('data-idx', String(page.projectIdx));
         $('#pd-title').text((proj.title && proj.title[page.lang]) || '');
+        const credit = projectCredit(proj, page.lang);
+        if (credit) $('#pd-title').append(`<span class="pd-credit" contenteditable="false">${escapeHtml(' ' + credit)}</span>`);
         $('#pd-desc').text((proj.desc && proj.desc[page.lang]) || '');
         // « Projet suivant » (même règle que renderProjectDetail() côté
         // client) : son href est posé ensuite par transformNavLinks().
@@ -760,7 +771,8 @@ ${body}
   const projLines = lang => (SEED.projects || []).map(proj => {
     const url = `${SITE}${lang === 'en' ? '/en/projects/' : '/projets/'}${proj.id}/`;
     const d = descOf(proj, lang);
-    return `- [${plain(flatProjectName(proj, lang))}](${url})${d ? (lang === 'en' ? ': ' : ' : ') + d + '.' : ''}`;
+    const credit = plain(projectCredit(proj, lang));
+    return `- [${plain(flatProjectName(proj, lang))}${credit ? ' ' + credit : ''}](${url})${d ? (lang === 'en' ? ': ' : ' : ') + d + '.' : ''}`;
   }).join('\n');
   const txt = `# Alexis Vassivière
 
