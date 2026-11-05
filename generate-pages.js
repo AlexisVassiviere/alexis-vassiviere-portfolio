@@ -760,7 +760,7 @@ ${body}
   const projLines = lang => (SEED.projects || []).map(proj => {
     const url = `${SITE}${lang === 'en' ? '/en/projects/' : '/projets/'}${proj.id}/`;
     const d = descOf(proj, lang);
-    return `- [${flatProjectName(proj, lang)}](${url})${d ? (lang === 'en' ? ': ' : ' : ') + d + '.' : ''}`;
+    return `- [${plain(flatProjectName(proj, lang))}](${url})${d ? (lang === 'en' ? ': ' : ' : ') + d + '.' : ''}`;
   }).join('\n');
   const txt = `# Alexis Vassivière
 
