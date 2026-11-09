@@ -262,6 +262,13 @@ function transformNavLinks(html, page) {
     tag.replace(/\bhref="[^"]*"/, `href="${routePath(nav, page.lang)}"`));
 }
 
+// Adresse absolue du site (canonical) → chemin depuis la racine ("/en/…"),
+// comme les autres liens internes.
+function sitePath(url) {
+  if (!url || !url.startsWith(SITE)) throw new Error(`Adresse hors du site : ${url}`);
+  return url.slice(SITE.length) || '/';
+}
+
 // Nom du projet sur une seule ligne : un titre peut contenir un retour à
 // la ligne voulu (ex. "Spotify\nDaniel Ek", affiché sur 2 lignes grâce à
 // white-space:pre-line) — à aplatir pour <title>, meta, JSON-LD et alt.
@@ -569,8 +576,13 @@ function transformBody(html, page, SEED) {
     translateFragment($, page.lang, SEED);
     $('.nav a[data-route]').removeClass('active');
     $(`.nav a[data-route="${page.section}"]`).addClass('active');
-    $('.lang button').removeClass('on');
-    $(`.lang button[data-lang="${page.lang}"]`).addClass('on');
+    // Liens FR/EN : vraie adresse de la même page dans chaque langue (seul
+    // lien HTML entre les versions FR et EN, que Google peut suivre).
+    const otherLang = page.lang === 'en' ? 'fr' : 'en';
+    $('.lang a[data-lang]').removeClass('on').removeAttr('aria-current');
+    $(`.lang a[data-lang="${page.lang}"]`).addClass('on').attr('aria-current', 'true')
+      .attr('href', sitePath(page.canonical));
+    $(`.lang a[data-lang="${otherLang}"]`).attr('href', sitePath(page.altCanonical));
     const newFrag = $.root().html();
     html = html.slice(0, frag.start) + newFrag + html.slice(frag.end);
   }
@@ -687,7 +699,7 @@ for (const page of PAGES) {
 // laisse index.html intact. <head> inchangé (c'est déjà celui de l'accueil
 // FR) ; seul le corps est pré-rendu, comme pour /en/.
 const PRERENDER_ROOT = !!process.env.VERCEL || process.argv.includes('--root');
-const ROOT_PAGE = { outPath: 'index.html', lang: 'fr', section: 'home', canonical: `${SITE}/` };
+const ROOT_PAGE = { outPath: 'index.html', lang: 'fr', section: 'home', canonical: `${SITE}/`, altCanonical: `${SITE}/en/` };
 if (PRERENDER_ROOT) {
   let html = transformBody(src, ROOT_PAGE, SEED);
   html = transformNavLinks(html, ROOT_PAGE);
