@@ -103,6 +103,7 @@
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-001.jpg</image:loc></image:image>
@@ -122,6 +123,7 @@
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/patrick-habirora-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/profirst-palerme-gala-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-001.jpg</image:loc></image:image>
@@ -324,6 +326,48 @@
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-008.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-009.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-011.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/projets/mizuya-miyazu/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/mizuya-miyazu/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/mizuya-miyazu/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/mizuya-miyazu/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-010.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-011.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-012.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/en/projects/mizuya-miyazu/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/mizuya-miyazu/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/mizuya-miyazu/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/mizuya-miyazu/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-005.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-006.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-007.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-008.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-009.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-010.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-011.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-012.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/projets/hm-home/</loc>
