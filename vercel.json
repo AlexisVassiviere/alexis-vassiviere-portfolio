@@ -31,6 +31,8 @@
     { "source": "/projets/live-tournee/", "destination": "/projets/spotify-daniel-ek/", "permanent": true },
     { "source": "/en/projects/live-tournee/", "destination": "/en/projects/spotify-daniel-ek/", "permanent": true },
     { "source": "/projets/sport-evenementiel/", "destination": "/projets/camille-yembe/", "permanent": true },
-    { "source": "/en/projects/sport-evenementiel/", "destination": "/en/projects/camille-yembe/", "permanent": true }
+    { "source": "/en/projects/sport-evenementiel/", "destination": "/en/projects/camille-yembe/", "permanent": true },
+    { "source": "/projets/petit/", "destination": "/projets/modern-kid/", "permanent": true },
+    { "source": "/en/projects/petit/", "destination": "/en/projects/modern-kid/", "permanent": true }
   ]
 }

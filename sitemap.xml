@@ -37,7 +37,7 @@
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/45-japon-neon-shinjuku.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/47-japon-kanazawa-navi.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/46-japon-restaurant-auvent.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/08-live-fumee-bleue.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/31-portrait-micro-dreadlocks.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/33-live-silhouette-ailes.jpg</image:loc></image:image>
@@ -78,7 +78,7 @@
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/45-japon-neon-shinjuku.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/47-japon-kanazawa-navi.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/46-japon-restaurant-auvent.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-004.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/08-live-fumee-bleue.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/31-portrait-micro-dreadlocks.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/ACCUEIL/33-live-silhouette-ailes.jpg</image:loc></image:image>
@@ -107,10 +107,10 @@
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-002.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-001.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/en/projects/</loc>
@@ -128,10 +128,10 @@
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/altstadt-vienna-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/mizuya-miyazu-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/spotify-daniel-ek-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/oxlade-sony-music-001.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-002.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-001.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/projets/oz-warner-japan/</loc>
@@ -416,6 +416,32 @@
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/hm-home-012.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.alexisvassiviere.com/projets/modern-kid/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/modern-kid/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/modern-kid/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/modern-kid/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-004.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.alexisvassiviere.com/en/projects/modern-kid/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/modern-kid/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/modern-kid/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/modern-kid/" />
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-001.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-002.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-003.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/modern-kid-004.jpg</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://www.alexisvassiviere.com/projets/spotify-daniel-ek/</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>
@@ -524,32 +550,6 @@
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-009.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-012.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/lena-situations-011.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/projets/petit/</loc>
-    <lastmod>2026-11-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/petit/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/petit/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/petit/" />
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-001.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-002.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-003.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-004.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://www.alexisvassiviere.com/en/projects/petit/</loc>
-    <lastmod>2026-11-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alexisvassiviere.com/projets/petit/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.alexisvassiviere.com/en/projects/petit/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alexisvassiviere.com/projets/petit/" />
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-001.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-002.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-003.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.alexisvassiviere.com/images/PROJETS/petit-004.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.alexisvassiviere.com/contact/</loc>

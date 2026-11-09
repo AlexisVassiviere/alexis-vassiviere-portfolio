@@ -20,10 +20,10 @@ Site bilingue (français / anglais). Contact : contact@alexisvassiviere.com. Tou
 - [Hotel Altstadt Vienna](https://www.alexisvassiviere.com/projets/altstadt-vienna/) : Photographie d'intérieur pour l'hôtel Altstadt Vienna.
 - [Hotel Mizuya Miyazu, Japon](https://www.alexisvassiviere.com/projets/mizuya-miyazu/) : Photographie d'intérieur à l'hôtel Mizuya, à Miyazu (Japon).
 - [H&M Home](https://www.alexisvassiviere.com/projets/hm-home/) : Reportage photo d'un événement H&M Home, réalisé pour Profirst avec HUG Production.
+- [Modern Kid](https://www.alexisvassiviere.com/projets/modern-kid/) : Série de portraits mis en scène.
 - [Spotify Daniel Ek](https://www.alexisvassiviere.com/projets/spotify-daniel-ek/) : Reportage corporate haut de gamme. Photos livrées le soir même.
 - [Oxlade Sony Music](https://www.alexisvassiviere.com/projets/oxlade-sony-music/) : Série de portraits d'artistes réalisée pour un éditorial mode et presse.
 - [Lena Situations](https://www.alexisvassiviere.com/projets/lena-situations/) : Reportage photo pour l'ouverture de l'Hôtel Mahfouf, Maison du Cygne, Bruxelles.
-- [Petit](https://www.alexisvassiviere.com/projets/petit/) : Série de portraits mis en scène.
 
 ## English
 
@@ -43,10 +43,10 @@ Site bilingue (français / anglais). Contact : contact@alexisvassiviere.com. Tou
 - [Hotel Altstadt Vienna](https://www.alexisvassiviere.com/en/projects/altstadt-vienna/): Interior photography for Hotel Altstadt Vienna.
 - [Hotel Mizuya Miyazu, Japan](https://www.alexisvassiviere.com/en/projects/mizuya-miyazu/): Interior photography at Hotel Mizuya in Miyazu, Japan.
 - [H&M Home](https://www.alexisvassiviere.com/en/projects/hm-home/): Event photography for H&M Home, shot for Profirst with HUG Production.
+- [Modern Kid](https://www.alexisvassiviere.com/en/projects/modern-kid/): A staged portrait series.
 - [Spotify Daniel Ek](https://www.alexisvassiviere.com/en/projects/spotify-daniel-ek/): High-end corporate coverage. Photos delivered the same evening.
 - [Oxlade Sony Music](https://www.alexisvassiviere.com/en/projects/oxlade-sony-music/): A portrait series of artists shot for a fashion and press editorial.
 - [Lena Situations](https://www.alexisvassiviere.com/en/projects/lena-situations/): Photo coverage of the opening of Hôtel Mahfouf, Maison du Cygne, Brussels.
-- [Petit](https://www.alexisvassiviere.com/en/projects/petit/): A staged portrait series.
 
 ## Optional
 
